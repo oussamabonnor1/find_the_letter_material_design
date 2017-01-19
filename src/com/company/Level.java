@@ -109,7 +109,7 @@ public class Level {
         if (index == 2) {
             if (startIndex == 0) {
                 for (int i = 0; i < decomposedWord.size(); i++) {
-                    if (i==1 || i==4 || i==5 || i==8 || i==9) {
+                    if (i == 1 || i == 4 || i == 5 || i == 8 || i == 9) {
                         organizedCharacters.add(i, decomposedWord.get(i));
                     } else {
                         organizedCharacters.add(i, '-');
@@ -119,7 +119,7 @@ public class Level {
 
             if (startIndex == 1) {
                 for (int i = 0; i < decomposedWord.size(); i++) {
-                    if (i==0 || i==5 || i==6 || i==7|| i==11) {
+                    if (i == 0 || i == 5 || i == 6 || i == 7 || i == 11) {
                         organizedCharacters.add(i, decomposedWord.get(i));
                     } else {
                         organizedCharacters.add(i, '-');
@@ -134,25 +134,25 @@ public class Level {
     public boolean guessingCharachter(String c) {
         boolean valeur = true;
         //correct answer:
-        if (wordLetters.contains(c) && organizedCharacters.contains(c) == false) {
+        if (wordLetters.contains(c.charAt(0))) {
+
             valeur = true;
-            int g = wordLetters.indexOf(c);
-            organizedCharacters.set(g, c.charAt(0));
-            System.out.println("that s correct!\nthe new word is now :");
-            for (int i = 0; i < organizedCharacters.size(); i++) {
-                System.out.print(organizedCharacters.get(i));
+
+            for (int i = 0; i < c.length(); i++) {
+                int g = wordLetters.indexOf(c.charAt(i));
+                organizedCharacters.set(g, c.charAt(i));
             }
+
             score += 5;
-            System.out.println("\nyour new score is " + score);
         }
+
         //wrong answer:
-        else if (wordLetters.contains(c) == false || organizedCharacters.contains(c)) {
-            System.out.println("answer uncorrect, please try again...");
+        else if (!wordLetters.contains(c) || organizedCharacters.contains(c)) {
             valeur = false;
             score -= 1;
-            System.out.println("\nyour new score is " + score);
             help++;
         }
+
         return valeur;
     }
 
