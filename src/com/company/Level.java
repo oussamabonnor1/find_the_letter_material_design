@@ -131,13 +131,13 @@ public class Level {
 
     }
 
-    public boolean guessingCharachter(Character c) {
+    public boolean guessingCharachter(String c) {
         boolean valeur = true;
         //correct answer:
         if (wordLetters.contains(c) && organizedCharacters.contains(c) == false) {
             valeur = true;
             int g = wordLetters.indexOf(c);
-            organizedCharacters.set(g, c);
+            organizedCharacters.set(g, c.charAt(0));
             System.out.println("that s correct!\nthe new word is now :");
             for (int i = 0; i < organizedCharacters.size(); i++) {
                 System.out.print(organizedCharacters.get(i));
