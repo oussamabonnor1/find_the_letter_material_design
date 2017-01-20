@@ -13,13 +13,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import sun.audio.AudioData;
+import sun.audio.AudioDataStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
@@ -42,8 +49,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     JFXTextField answer;
 
-    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck", "phone", "daisy"};
-    Level first = new Level(1, 0, dictionary1, 0);
+    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck"};
+    Level first = new Level(1, 0, 0);
     int h = -1;
 
     public Main() throws FileNotFoundException {
@@ -55,6 +62,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Rectangle rectangle = new Rectangle(0,0,600,150);
+        rectangle.setFill(Paint.valueOf("FFFFFF"));
+
         stage = primaryStage;
         stage.setResizable(false);
         stage.setTitle("Find The Letters");
@@ -69,19 +79,19 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         //layout.setBackground(new Background(new BackgroundFill(Paint.valueOf("673AB7"), null, null)));
         //layout.setStyle("-fx-background: #FFFFFF");
 
-        title = new Label("Find T-e Lett-rs");
-        title.setTextFill(Paint.valueOf("FFFFFF"));
-        title.setTranslateY(50);
+        title = new Label("Find  T-e  Lett-rs");
+        title.setTextFill(Paint.valueOf("673AB7"));
+        title.setTranslateY(-205);
         title.setTranslateX(-50);
         title.setPrefWidth(600);
         title.setAlignment(Pos.BOTTOM_CENTER);
         title.setTextAlignment(TextAlignment.CENTER);
-        title.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 35));
+        title.setFont(Font.font("Calisto MT", FontWeight.BOLD, 35));
 
         state = new Label("Score: " + first.getScore());
         state.setTextFill(Paint.valueOf("FFFFFF"));
         state.setPrefWidth(600);
-        state.setTranslateY(-50);
+        state.setTranslateY(-330);
         state.setTranslateX(-50);
         state.setAlignment(Pos.BOTTOM_CENTER);
         state.setTextAlignment(TextAlignment.CENTER);
@@ -91,6 +101,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         word.setTextFill(Paint.valueOf("FFFFFF"));
         word.setPrefWidth(600);
         word.setTranslateX(-50);
+        word.setTranslateY(-260);
         word.setAlignment(Pos.BOTTOM_CENTER);
         word.setTextAlignment(TextAlignment.CENTER);
         word.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 35));
@@ -99,6 +110,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         pepTalk.setTextFill(Paint.valueOf("FFFFFF"));
         pepTalk.setPrefWidth(600);
         pepTalk.setTranslateX(-50);
+        pepTalk.setTranslateY(-220);
         pepTalk.setAlignment(Pos.BOTTOM_CENTER);
         pepTalk.setTextAlignment(TextAlignment.CENTER);
         pepTalk.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 35));
@@ -108,6 +120,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         submit.setBackground(new Background(new BackgroundFill(Paint.valueOf("FFFFFF"), null, null)));
         submit.setFont(Font.font("FangSong", FontWeight.BOLD, 25));
         submit.setTranslateX(165);
+        submit.setTranslateY(-300);
         submit.setPrefWidth(170);
         submit.setOnAction(this);
 
@@ -118,9 +131,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         answer.setFont(Font.font("FangSong", FontWeight.BOLD, 20));
         answer.setStyle("-fx-text-fill: #FFFFFF;-fx-alignment: center;");
         answer.setTranslateX(150);
+        answer.setTranslateY(-270);
 
 
-        layout.getChildren().addAll(title, pepTalk, word, answer, submit, state);
+        layout.getChildren().addAll(rectangle,title, pepTalk, word, answer, submit, state);
         //layout.setAlignment(Pos.CENTER);
 
         background.getChildren().addAll(layout);
@@ -139,14 +153,24 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         Random d = new Random();
 
         if (h != -1) {
-            for (int i = h; i < dictionary1.length; i++) {
-                if(i<dictionary1.length-1) dictionary1[i] = dictionary1[i + 1];
+            for (int i = h; i < first.dictionary.size(); i++) {
+                first.dictionary.remove(i);
+            }
+        } else {
+            for (int i = 0; i < dictionary1.length; i++) {
+                first.dictionary.add(dictionary1[i]);
             }
         }
+
+        for (int i = 0; i < first.dictionary.size(); i++) {
+            System.out.println(first.dictionary.get(i));
+        }
+
+
         first.wordLetters.clear();
         first.organizedCharacters.clear();
         h = d.nextInt(dictionary1.length);
-        first.testWord = first.dictionary[h];
+        first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
         word.setText("");
 
@@ -163,45 +187,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         }
     }
 
-            /*while (!first.organizedCharacters.equals(first.wordLetters) && decison == true) {
-                System.out.println("enter a letter");
-               // first.guessingCharachter(r.next().charAt(0));
-                decison = first.help1();
-            }
-        first.setScore(first.getScore() + 100);
-        System.out.println("great job " + name + " you finished a word! your score now is:" + first.getScore());*/
-    //first.organizedCharacters.clear();
-    //first.wordLetters.clear();
-    //first.setHelp(0);
-    //decison = true;
-
-
     // level two: i mean seriously guys, some graphics would be heaven now -_-
     //i learned graphics old me..great job
-
-   /* String[] dictionary2 = {"player", "nature", "extra", "drive", "guitar", "tragic", "creation"};
-    Level second = new Level(2, first.getScore(), dictionary2, 0);
-
-        while(second.getScore() < 600){
-        second.testWord = second.dictionary[d.nextInt(7)];
-        second.generateWord(second.decompose(second.testWord), d.nextInt(2));
-        System.out.println("the word in game is:");
-
-        for (int i = 0; i < second.organizedCharacters.size(); i++) {
-            System.out.print(second.organizedCharacters.get(i));
-        }
-        System.out.println("");
-        while (!second.organizedCharacters.equals(second.wordLetters) && decison == true) {
-            System.out.println("enter a letter");
-            second.guessingCharachter(r.next().charAt(0));
-            decison = second.help1();
-        }
-        second.setScore(first.getScore() + 120);
-        System.out.println("great job " + name + " you finished a word! your score now is:" + second.getScore());
-        second.organizedCharacters.clear();
-        second.wordLetters.clear();
-        second.setHelp(0);
-        decison = true;*/
 
 
     public void guess() {
@@ -214,25 +201,37 @@ public class Main extends Application implements EventHandler<ActionEvent> {
             } else {
                 if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
-                    state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                    state.setText("Good Job, new Score: " + first.getScore());
-                    updateWword();
+
                     if (first.organizedCharacters.equals(first.wordLetters)) {
                         background.getChildren().removeAll(layout);
                         background.getChildren().addAll(iv, layout);
                         submit.setText("Next");
+                        music(3);
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("Good Job, new Score: " + first.getScore());
+                    } else {
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("Good Job, new Score: " + first.getScore());
+                        music(1);
+                        updateWword();
                     }
                 } else {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !\nnew Score: " + first.getScore());
+                    music(2);
                 }
                 answer.setText("");
             }
         } else {
-            creatingWord();
-            submit.setText("Check");
-            background.getChildren().removeAll(iv, layout);
-            background.getChildren().addAll(layout);
+            if (first.dictionary.size() == 0) {
+                submit.setStyle("fx-text-fill:#FFFFFF;");
+                submit.setText("You Finished this Level");
+            } else {
+                creatingWord();
+                submit.setText("Check");
+                background.getChildren().removeAll(iv, layout);
+                background.getChildren().addAll(layout);
+            }
         }
 
     }
@@ -242,6 +241,31 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         if (event.getSource() == submit) {
             guess();
         }
+    }
+
+    public void music(int i) {
+        AudioPlayer player = AudioPlayer.player;
+        AudioData data;
+        AudioDataStream output = null;
+        AudioStream background = null;
+
+        try {
+            if (i == 1) {
+                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Correct-answer.wav"));
+            }
+            if (i == 2) {
+                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Wrong-answer-sound-effect.wav"));
+            }
+            if (i == 3) {
+                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Next-Level-Sound.wav"));
+            }
+
+            data = background.getData();
+            output = new AudioDataStream(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.start(output);
     }
 }
 

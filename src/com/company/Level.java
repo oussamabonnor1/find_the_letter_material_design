@@ -13,7 +13,7 @@ public class Level {
     //score: obvious
     private int score;
     //dictionary: contains the words generated in this game
-    String[] dictionary = new String[8];
+    ArrayList<String> dictionary = new ArrayList<>();
     //help: a counter to determine if the player needs any help, further explanation in the method "help"
     private int help;
 
@@ -49,19 +49,10 @@ public class Level {
     }
 
     //constructor: this will be used to determmine each level
-    public Level(int index, int score, String[] dictionry, int help) {
+    public Level(int index, int score, int help) {
         this.index = index;
         this.score = score;
-        this.dictionary = dictionry;
         this.help = help;
-    }
-
-    public void setDictionary(String[] dictionary) {
-        this.dictionary = dictionary;
-    }
-
-    public String[] getDictionary() {
-        return dictionary;
     }
 
 
@@ -134,16 +125,24 @@ public class Level {
     public boolean guessingCharachter(String c) {
         boolean valeur = true;
         //correct answer:
+        //is the input's first character in the original word?
         if (wordLetters.contains(c.charAt(0))) {
-
-            valeur = true;
-
             for (int i = 0; i < c.length(); i++) {
-                int g = wordLetters.indexOf(c.charAt(i));
-                organizedCharacters.set(g, c.charAt(i));
+                //is the input s size smaller (maybe half a word is submited
+                if(c.length()<wordLetters.size()){
+                    //in that case, to prevent hacking points, no half words are accepted
+                    if (organizedCharacters.contains(c.charAt(i))) return false;
+                }
+                //if it s not a half word, an already existing character:
+                //if it s a word, make sure we don't give score ups for characters already obtained
+                if (wordLetters.get(wordLetters.indexOf(c.charAt(i))) !=organizedCharacters.get(i)) {
+                    int g = wordLetters.indexOf(c.charAt(i));
+                    organizedCharacters.set(g, c.charAt(i));
+                    score+=5;
+                }
             }
 
-            score += 5;
+            valeur = true;
         }
 
         //wrong answer:
