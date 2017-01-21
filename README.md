@@ -1,4 +1,4 @@
-# find_the_letter
+# find_the_letterr
 literature game made with javaFX, find the missing letters of each word to gain points.
 Fun and nice material design
 
