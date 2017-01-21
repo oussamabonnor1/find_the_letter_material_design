@@ -178,6 +178,7 @@ public class FXMLController implements Initializable {
                 //submit is the button / check button gets activated
                 next = false;
                 submit.setText("Check");
+                state.setText("");
             }
         }
 
