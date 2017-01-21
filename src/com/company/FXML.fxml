@@ -39,7 +39,7 @@
             <Label alignment="CENTER" layoutX="170.0" layoutY="14.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="Avatar" />
             <ProgressBar layoutX="65.0" layoutY="90.0" prefHeight="18.0" prefWidth="270.0" progress="0.0" />
          </children></Pane>
-      <Label fx:id="word" alignment="CENTER" layoutX="62.0" layoutY="330.0" prefHeight="68.0" prefWidth="246.0" text="The W_rd">
+      <Label fx:id="word" alignment="CENTER" layoutY="330.0" prefHeight="74.0" prefWidth="400.0">
          <font>
             <Font size="51.0" />
          </font>
