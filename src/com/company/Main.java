@@ -7,27 +7,30 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sun.audio.AudioData;
 import sun.audio.AudioDataStream;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
+import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
 
@@ -35,6 +38,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     Scene scene;
     VBox layout;
     Pane background;
+
+    FileChooser fileChooser = new FileChooser();
 
     Label title;
     Label word;
@@ -67,6 +72,8 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     public void start(Stage primaryStage) throws Exception {
         Rectangle rectangle = new Rectangle(0, 0, 600, 150);
         rectangle.setFill(Paint.valueOf("FFFFFF"));
+
+        fileChooser.setTitle("choose image");
 
         stage = primaryStage;
         stage.setResizable(false);
@@ -257,13 +264,16 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         }
         if (event.getSource() == help) {
 
-            Stage stage1 = stage;
+            // Stage stage1 = stage;
 
 
-            stage1.setScene(new Scene(new StackPane(new Label(new Tutorial().tutorial())), 600, 600));
+            // stage1.setScene(new Scene(new StackPane(new Label(new Tutorial().tutorial())), 600, 600));
 
-            stage1.show();
-
+//            stage1.show();
+            File file = fileChooser.showOpenDialog(new Stage());
+            if (file != null) {
+                openFile(file);
+            }
         }
     }
 
@@ -290,6 +300,26 @@ public class Main extends Application implements EventHandler<ActionEvent> {
             e.printStackTrace();
         }
         player.start(output);
+    }
+
+    private Desktop desktop = Desktop.getDesktop();
+    Photos photos;
+    private void openFile(File file) {
+
+        try {
+            photos = new Photos();
+            photos.links[0] = file.getPath();
+        } catch (Exception ex) {
+            Logger.getLogger(
+                    Main.class.getName()).log(
+                    Level.SEVERE, null, ex
+            );
+        }
+        photos.gettingLinks();
+        iv = new ImageView(photos.image[0]);
+        background.getChildren().removeAll(layout);
+        background.getChildren().addAll(iv, layout);
+
     }
 }
 
