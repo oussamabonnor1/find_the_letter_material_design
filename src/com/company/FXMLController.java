@@ -13,9 +13,16 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 public class FXMLController implements Initializable {
@@ -30,17 +37,46 @@ public class FXMLController implements Initializable {
     @FXML
     private Label word;
 
+    @FXML
+    private Label lblscore;
+    
+    
     
     @FXML
     private JFXButton closButton;
     
+   @FXML
+    private JFXButton minButton;
+    @FXML
+    private JFXButton back;
    
+   
+    @FXML
+    void OnBack(ActionEvent event) throws IOException {
+   ((Node)(event.getSource())).getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("ABC");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+    }
+   
+   
+    @FXML
+    void OnMinimiz(ActionEvent event) {
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            // is stage minimizable into task bar. (true | false)
+            stage.setIconified(true);
+    }
      @FXML
     void closewindow(ActionEvent event) throws IOException {
       ((Node)(event.getSource())).getScene().getWindow().hide();
     }
-
-    Random d = new Random();
+    
+    
     int score = 0;
     boolean next = false;
 
@@ -50,25 +86,27 @@ public class FXMLController implements Initializable {
 
 
     public void creatingWord() {
+        Random d = new Random();
 
         if (h != -1) {
-                    first.dictionary.remove(h);
-
+            for (int i = h; i < first.dictionary.size(); i++) {
+                first.dictionary.remove(i);
+            }
         } else {
             for (int i = 0; i < dictionary1.length; i++) {
                 first.dictionary.add(dictionary1[i]);
             }
         }
-        System.out.println("---------------");
+
         for (int i = 0; i < first.dictionary.size(); i++) {
-            System.out.println(i+" "+first.dictionary.get(i));
+            System.out.println(first.dictionary.get(i));
         }
-        System.out.println("length "+first.dictionary.size());
+
 
         first.wordLetters.clear();
         first.organizedCharacters.clear();
-        h = d.nextInt(first.dictionary.size());
-        first.testWord = first.dictionary.get(h);
+        h = d.nextInt(dictionary1.length);
+        first.testWord = first.dictionary.get(h-1);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
 
         //make the textfield empty here
@@ -117,12 +155,12 @@ public class FXMLController implements Initializable {
                     //state is the label
                     score = first.getScore();
                     state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                    state.setText("Good Job, new Score: " + score);
+                    state.setText("Good Job");
                 } else {
                     score = first.getScore();
                     //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
-                    state.setText("wrong, guess again !\nnew Score: " + score);
+                    state.setText("wrong, guess again !");
                     //  music(2);
                 }
                 //answer is the textfield
@@ -146,6 +184,8 @@ public class FXMLController implements Initializable {
     @FXML
     void icheck(ActionEvent event) {
         guess();
+        String str = Integer.toString(score);
+        lblscore.setText(str + " Points");
     }
 
 

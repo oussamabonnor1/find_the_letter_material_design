@@ -112,7 +112,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="326.0" layoutY="-5.0" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
+            <JFXButton fx:id="minButton" layoutX="326.0" layoutY="-5.0" onAction="#OnMinimiz" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

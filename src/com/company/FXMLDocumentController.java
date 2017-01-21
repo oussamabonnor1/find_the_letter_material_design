@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -28,6 +29,15 @@ public class FXMLDocumentController implements Initializable {
     private JFXButton closButton;
     
    
+    @FXML
+    private JFXButton minButton;
+
+    @FXML
+    void OnMinimiz(ActionEvent event) {
+        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
+            // is stage minimizable into task bar. (true | false)
+            stage.setIconified(true);
+    }
      @FXML
     void closewindow(ActionEvent event) throws IOException {
       ((Node)(event.getSource())).getScene().getWindow().hide();

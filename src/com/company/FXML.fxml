@@ -13,17 +13,17 @@
    <children>
       <Pane prefHeight="269.0" prefWidth="381.0" style="-fx-background-color: #00BCD5;">
          <children>
-            <Label layoutX="55.0" layoutY="158.0" prefHeight="38.0" prefWidth="290.0" text="Let's see if you can solve this one" textFill="WHITE">
+            <Label layoutX="55.0" layoutY="173.0" prefHeight="38.0" prefWidth="290.0" text="Let's see if you can solve this one" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="295.0" layoutY="22.0" text="9999 Pts" textFill="WHITE">
+            <Label fx:id="lblscore" alignment="CENTER" layoutX="281.0" layoutY="29.0" prefHeight="30.0" prefWidth="100.0" text="0 Pts" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <JFXButton layoutY="15.0" ripplerFill="WHITE" text="&lt; Back" textFill="WHITE">
+            <JFXButton fx:id="back" layoutY="22.0" onAction="#OnBack" ripplerFill="WHITE" text="&lt; Back" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -37,7 +37,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton layoutX="326.0" layoutY="-5.0" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
+                  <JFXButton fx:id="minButton" layoutX="326.0" layoutY="-5.0" onAction="#OnMinimiz" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -55,9 +55,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <Label fx:id="state" alignment="CENTER" layoutX="9.0" layoutY="550.0" prefHeight="44.0" prefWidth="217.0" text="Label">
+      <Label fx:id="state" alignment="CENTER" layoutX="9.0" layoutY="550.0" prefHeight="44.0" prefWidth="195.0" text="Label">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <JFXTextField fx:id="answer" alignment="CENTER" layoutX="124.0" layoutY="449.0" maxWidth="224.0" minWidth="139.0" prefHeight="38.0" prefWidth="139.0">
