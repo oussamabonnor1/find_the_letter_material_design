@@ -69,18 +69,13 @@ public class FXMLController implements Initializable {
     public void updateWord() {
 
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
-            //textfield receives getTextField + the new letter (previous + new)
+      
              word.setText(word.getText() + first.organizedCharacters.get(i));
         }
     }
 
-    // level two: i mean seriously guys, some graphics would be heaven now -_-
-    //i learned graphics old me..great job
-
-
     public void guess() {
-        //just in case things go bad
-        //submit is the button
+   
 
         if (submit.getText() == "Check") {
             //answer is the textfield
@@ -131,9 +126,8 @@ public class FXMLController implements Initializable {
 
     }
     
-       @FXML
+    @FXML
     void icheck(ActionEvent event) {
-
         if (event.getSource() == submit) {
             guess();
         }

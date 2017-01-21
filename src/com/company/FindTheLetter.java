@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -28,11 +29,11 @@ public class FindTheLetter extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
+  
+     
+     
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
