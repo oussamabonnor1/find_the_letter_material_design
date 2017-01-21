@@ -1,0 +1,11 @@
+﻿.root {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0.5, 0.0, 0.0);
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
+ 
+.content {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+}
