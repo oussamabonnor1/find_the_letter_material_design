@@ -34,27 +34,6 @@ import java.util.logging.Logger;
 
 public class Main extends Application implements EventHandler<ActionEvent> {
 
-    Stage stage;
-    Scene scene;
-    VBox layout;
-    Pane background;
-
-    FileChooser fileChooser = new FileChooser();
-
-    Label title;
-    Label word;
-    Label state;
-    Label pepTalk;
-
-    Image image = new Image(new FileInputStream("C:\\Users\\Oussama\\Pictures\\Java work\\Tick_Mark_Dark-512.png"), 350, 350, false, false);
-    ImageView iv = new ImageView(image);
-
-
-    JFXButton submit;
-    JFXButton help;
-
-    JFXTextField answer;
-
     int score = 0;
 
     String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck"};
@@ -70,99 +49,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Rectangle rectangle = new Rectangle(0, 0, 600, 150);
-        rectangle.setFill(Paint.valueOf("FFFFFF"));
-
-        fileChooser.setTitle("choose image");
-
-        stage = primaryStage;
-        stage.setResizable(false);
-        stage.setTitle("Find The Letters");
-
-        iv.setTranslateX(80);
-        iv.setTranslateY(210);
-
-        background = new Pane();
-        background.setBackground(new Background(new BackgroundFill(Paint.valueOf("673AB7"), null, null)));
-
-        layout = new VBox(100);
-
-        title = new Label("Find  T-e  Lett-rs");
-        title.setTextFill(Paint.valueOf("673AB7"));
-        title.setTranslateY(-205);
-        title.setTranslateX(-50);
-        title.setPrefWidth(600);
-        title.setAlignment(Pos.BOTTOM_CENTER);
-        title.setTextAlignment(TextAlignment.CENTER);
-        title.setFont(Font.font("Calisto MT", FontWeight.BOLD, 35));
-
-        state = new Label("Score: " + score);
-        state.setTextFill(Paint.valueOf("FFFFFF"));
-        state.setPrefWidth(600);
-        state.setTranslateY(-330);
-        state.setTranslateX(-50);
-        state.setAlignment(Pos.BOTTOM_CENTER);
-        state.setTextAlignment(TextAlignment.CENTER);
-        state.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 30));
-
-        word = new Label("");
-        word.setTextFill(Paint.valueOf("FFFFFF"));
-        word.setPrefWidth(600);
-        word.setTranslateX(-50);
-        word.setTranslateY(-260);
-        word.setAlignment(Pos.BOTTOM_CENTER);
-        word.setTextAlignment(TextAlignment.CENTER);
-        word.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 35));
-
-        pepTalk = new Label("Guess this:");
-        pepTalk.setTextFill(Paint.valueOf("FFFFFF"));
-        pepTalk.setPrefWidth(600);
-        pepTalk.setTranslateX(-50);
-        pepTalk.setTranslateY(-220);
-        pepTalk.setAlignment(Pos.BOTTOM_CENTER);
-        pepTalk.setTextAlignment(TextAlignment.CENTER);
-        pepTalk.setFont(Font.font("Lucida Calligraphy", FontWeight.BOLD, 35));
-
-        submit = new JFXButton("Check");
-        submit.setTextFill(Paint.valueOf("006064"));
-        submit.setBackground(new Background(new BackgroundFill(Paint.valueOf("FFFFFF"), null, null)));
-        submit.setFont(Font.font("FangSong", FontWeight.BOLD, 25));
-        submit.setTranslateX(165);
-        submit.setTranslateY(-300);
-        submit.setPrefWidth(170);
-        submit.setOnAction(this);
-
-        help = new JFXButton("?");
-        help.setTextFill(Paint.valueOf("006064"));
-        help.setBackground(new Background(new BackgroundFill(Paint.valueOf("FFFFFF"), null, null)));
-        help.setFont(Font.font("FangSong", FontWeight.BOLD, 25));
-        help.setTranslateX(370);
-        help.setTranslateY(547);
-        help.setPrefWidth(25);
-        help.setOnAction(this);
-
-        answer = new JFXTextField();
-        answer.setFocusColor(Paint.valueOf("FFFFFF"));
-        answer.setMaxWidth(200);
-        answer.setFocusColor(Paint.valueOf("FFFFFF"));
-        answer.setFont(Font.font("FangSong", FontWeight.BOLD, 20));
-        answer.setStyle("-fx-text-fill: #FFFFFF;-fx-alignment: center;");
-        answer.setTranslateX(150);
-        answer.setTranslateY(-270);
-
-
-        layout.getChildren().addAll(rectangle, title, pepTalk, word, answer, submit, state);
-        //layout.setAlignment(Pos.CENTER);
-
-        background.getChildren().addAll(layout, help);
-
-        HBox root = new HBox();
-        root.getChildren().add(background);
-
-        scene = new Scene(root, 500, 800);
-        stage.setScene(scene);
-        creatingWord();
-        stage.show();
 
     }
 
@@ -189,18 +75,19 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         h = d.nextInt(dictionary1.length);
         first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
-        word.setText("");
 
-        for (int i = 0; i < first.organizedCharacters.size(); i++) {
-            word.setText(word.getText() + first.organizedCharacters.get(i));
-        }
+        //make the textfield empty here
+        // textfield.setText("");
+
+       updateWord();
 
     }
 
-    public void updateWword() {
-        word.setText("");
+    public void updateWord() {
+
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
-            word.setText(word.getText() + first.organizedCharacters.get(i));
+            //textfield receives getTextField + the new letter (previous + new)
+            // word.setText(word.getText() + first.organizedCharacters.get(i));
         }
     }
 
@@ -210,48 +97,52 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     public void guess() {
         //just in case things go bad
+        //submit is the button
 
         if (submit.getText() == "Check") {
+            //answer is the textfield
+            //checking if the textfield is empty
             if (answer.getText().isEmpty()) {
+                //state is a label
                 state.setStyle("-fx-text-fill: #FFFFFF;-fx-alignment: center;");
                 state.setText("Writte at least one letter");
             } else {
-
-
+                //in the guessingCharachter methode, insert the text in the textfield in lowercase
                 if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
                     if (first.organizedCharacters.equals(first.wordLetters)) {
-                        background.getChildren().removeAll(layout);
-                        background.getChildren().addAll(iv, layout);
+                       //next button is activated
                         submit.setText("Next");
+                        //sound effects
                         music(3);
-                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                        score = first.getScore();
-                        state.setText("Good Job, new Score: " + score);
                     } else {
-                        score = first.getScore();
-                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                        state.setText("Good Job, new Score: " + score);
                         music(1);
-                        updateWword();
+                        //modifie the word, automaticaly
+                        updateWord();
                     }
+                    //state is the label
+                    score = first.getScore();
+                    state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                    state.setText("Good Job, new Score: " + score);
                 } else {
                     score = first.getScore();
+                    //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !\nnew Score: " + score);
                     music(2);
                 }
+                //answer is the textfield
                 answer.setText("");
             }
         } else {
             if (first.dictionary.size() == 0) {
-                submit.setStyle("fx-text-fill:#FFFFFF;");
-                submit.setText("You Finished this Level");
+                //state is the label
+                state.setStyle("fx-text-fill:#FFFFFF;");
+                state.setText("You Finished this Level");
             } else {
                 creatingWord();
-                submit.setText("Check");
-                background.getChildren().removeAll(iv, layout);
-                background.getChildren().addAll(layout);
+                //submit is the button / check button gets activated
+                submit.setEnabeled(true);
             }
         }
 
@@ -259,21 +150,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        //submit is the check button
         if (event.getSource() == submit) {
             guess();
-        }
-        if (event.getSource() == help) {
-
-            // Stage stage1 = stage;
-
-
-            // stage1.setScene(new Scene(new StackPane(new Label(new Tutorial().tutorial())), 600, 600));
-
-//            stage1.show();
-            File file = fileChooser.showOpenDialog(new Stage());
-            if (file != null) {
-                openFile(file);
-            }
         }
     }
 
@@ -302,24 +181,5 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         player.start(output);
     }
 
-    private Desktop desktop = Desktop.getDesktop();
-    Photos photos;
-    private void openFile(File file) {
-
-        try {
-            photos = new Photos();
-            photos.links[0] = file.getPath();
-        } catch (Exception ex) {
-            Logger.getLogger(
-                    Main.class.getName()).log(
-                    Level.SEVERE, null, ex
-            );
-        }
-        photos.gettingLinks();
-        iv = new ImageView(photos.image[0]);
-        background.getChildren().removeAll(layout);
-        background.getChildren().addAll(iv, layout);
-
-    }
 }
 
