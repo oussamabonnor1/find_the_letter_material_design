@@ -92,7 +92,7 @@ public class FXMLController implements Initializable {
 
         if (h != -1) {
             for (int i = h; i < first.dictionary.size(); i++) {
-                first.dictionary.remove(i);
+                first.dictionary.remove(h);
             }
         } else {
             for (int i = 0; i < dictionary1.length; i++) {
@@ -169,7 +169,7 @@ public class FXMLController implements Initializable {
                 answer.setText("");
             }
         } else {
-            if (first.dictionary.size() == 0) {
+            if (first.dictionary.size() < 1) {
                 //state is the label
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level");
