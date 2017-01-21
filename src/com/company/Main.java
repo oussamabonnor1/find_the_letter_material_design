@@ -46,11 +46,14 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
 
     JFXButton submit;
+    JFXButton help;
 
     JFXTextField answer;
 
+    int score = 0;
+
     String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck"};
-    Level first = new Level(1, 0, 0);
+    Word first = new Word(1, score, 0);
     int h = -1;
 
     public Main() throws FileNotFoundException {
@@ -62,7 +65,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Rectangle rectangle = new Rectangle(0,0,600,150);
+        Rectangle rectangle = new Rectangle(0, 0, 600, 150);
         rectangle.setFill(Paint.valueOf("FFFFFF"));
 
         stage = primaryStage;
@@ -76,8 +79,6 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         background.setBackground(new Background(new BackgroundFill(Paint.valueOf("673AB7"), null, null)));
 
         layout = new VBox(100);
-        //layout.setBackground(new Background(new BackgroundFill(Paint.valueOf("673AB7"), null, null)));
-        //layout.setStyle("-fx-background: #FFFFFF");
 
         title = new Label("Find  T-e  Lett-rs");
         title.setTextFill(Paint.valueOf("673AB7"));
@@ -88,7 +89,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         title.setTextAlignment(TextAlignment.CENTER);
         title.setFont(Font.font("Calisto MT", FontWeight.BOLD, 35));
 
-        state = new Label("Score: " + first.getScore());
+        state = new Label("Score: " + score);
         state.setTextFill(Paint.valueOf("FFFFFF"));
         state.setPrefWidth(600);
         state.setTranslateY(-330);
@@ -124,6 +125,15 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         submit.setPrefWidth(170);
         submit.setOnAction(this);
 
+        help = new JFXButton("?");
+        help.setTextFill(Paint.valueOf("006064"));
+        help.setBackground(new Background(new BackgroundFill(Paint.valueOf("FFFFFF"), null, null)));
+        help.setFont(Font.font("FangSong", FontWeight.BOLD, 25));
+        help.setTranslateX(370);
+        help.setTranslateY(547);
+        help.setPrefWidth(25);
+        help.setOnAction(this);
+
         answer = new JFXTextField();
         answer.setFocusColor(Paint.valueOf("FFFFFF"));
         answer.setMaxWidth(200);
@@ -134,10 +144,10 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         answer.setTranslateY(-270);
 
 
-        layout.getChildren().addAll(rectangle,title, pepTalk, word, answer, submit, state);
+        layout.getChildren().addAll(rectangle, title, pepTalk, word, answer, submit, state);
         //layout.setAlignment(Pos.CENTER);
 
-        background.getChildren().addAll(layout);
+        background.getChildren().addAll(layout, help);
 
         HBox root = new HBox();
         root.getChildren().add(background);
@@ -199,8 +209,9 @@ public class Main extends Application implements EventHandler<ActionEvent> {
                 state.setStyle("-fx-text-fill: #FFFFFF;-fx-alignment: center;");
                 state.setText("Writte at least one letter");
             } else {
-                if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
+
+                if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
                     if (first.organizedCharacters.equals(first.wordLetters)) {
                         background.getChildren().removeAll(layout);
@@ -208,16 +219,19 @@ public class Main extends Application implements EventHandler<ActionEvent> {
                         submit.setText("Next");
                         music(3);
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                        state.setText("Good Job, new Score: " + first.getScore());
+                        score = first.getScore();
+                        state.setText("Good Job, new Score: " + score);
                     } else {
+                        score = first.getScore();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                        state.setText("Good Job, new Score: " + first.getScore());
+                        state.setText("Good Job, new Score: " + score);
                         music(1);
                         updateWword();
                     }
                 } else {
+                    score = first.getScore();
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
-                    state.setText("wrong, guess again !\nnew Score: " + first.getScore());
+                    state.setText("wrong, guess again !\nnew Score: " + score);
                     music(2);
                 }
                 answer.setText("");
@@ -240,6 +254,16 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         if (event.getSource() == submit) {
             guess();
+        }
+        if (event.getSource() == help) {
+
+            Stage stage1 = stage;
+
+
+            stage1.setScene(new Scene(new StackPane(new Label(new Tutorial().tutorial())), 600, 600));
+
+            stage1.show();
+
         }
     }
 

@@ -6,9 +6,9 @@ import java.util.Scanner;
 /**
  * Created by user on 10/03/2016.
  */
-public class Level {
+public class Word {
     //variables:
-    //index: display wich level its about...
+    //index: display wich mode its about...
     private int index;
     //score: obvious
     private int score;
@@ -49,7 +49,7 @@ public class Level {
     }
 
     //constructor: this will be used to determmine each level
-    public Level(int index, int score, int help) {
+    public Word(int index, int score, int help) {
         this.index = index;
         this.score = score;
         this.help = help;
@@ -138,7 +138,7 @@ public class Level {
                 if (wordLetters.get(wordLetters.indexOf(c.charAt(i))) !=organizedCharacters.get(i)) {
                     int g = wordLetters.indexOf(c.charAt(i));
                     organizedCharacters.set(g, c.charAt(i));
-                    score+=5;
+                    setScore(getScore()+5);
                 }
             }
 
@@ -148,7 +148,7 @@ public class Level {
         //wrong answer:
         else if (!wordLetters.contains(c) || organizedCharacters.contains(c)) {
             valeur = false;
-            score -= 1;
+            if(getScore() > 0) setScore(getScore()-1);
             help++;
         }
 
