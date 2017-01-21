@@ -85,10 +85,10 @@ public class FXMLController implements Initializable {
     String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck"};
     Word first = new Word(1, score, 0);
     int h = -1;
-
+    Random d = new Random();
 
     public void creatingWord() {
-        Random d = new Random();
+
 
         if (h != -1) {
             for (int i = h; i < first.dictionary.size(); i++) {
@@ -101,21 +101,20 @@ public class FXMLController implements Initializable {
         }
 
         for (int i = 0; i < first.dictionary.size(); i++) {
-            System.out.println(first.dictionary.get(i));
+            System.out.println(i+" "+first.dictionary.get(i));
         }
 
 
         first.wordLetters.clear();
         first.organizedCharacters.clear();
         h = d.nextInt(first.dictionary.size());
-        first.testWord = first.dictionary.get(h-1);
+        first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
 
         //make the textfield empty here
         answer.setText("");
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
-
             word.setText(word.getText() + first.organizedCharacters.get(i));
         }
 
