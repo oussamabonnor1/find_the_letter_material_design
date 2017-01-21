@@ -39,8 +39,8 @@ public class FXMLController implements Initializable {
     void closewindow(ActionEvent event) throws IOException {
       ((Node)(event.getSource())).getScene().getWindow().hide();
     }
-    
-    
+
+    Random d = new Random();
     int score = 0;
     boolean next = false;
 
@@ -50,27 +50,25 @@ public class FXMLController implements Initializable {
 
 
     public void creatingWord() {
-        Random d = new Random();
 
         if (h != -1) {
-            for (int i = h; i < first.dictionary.size(); i++) {
-                first.dictionary.remove(i);
-            }
+                    first.dictionary.remove(h);
+
         } else {
             for (int i = 0; i < dictionary1.length; i++) {
                 first.dictionary.add(dictionary1[i]);
             }
         }
-
+        System.out.println("---------------");
         for (int i = 0; i < first.dictionary.size(); i++) {
-            System.out.println(first.dictionary.get(i));
+            System.out.println(i+" "+first.dictionary.get(i));
         }
-
+        System.out.println("length "+first.dictionary.size());
 
         first.wordLetters.clear();
         first.organizedCharacters.clear();
-        h = d.nextInt(dictionary1.length);
-        first.testWord = first.dictionary.get(h-1);
+        h = d.nextInt(first.dictionary.size());
+        first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
 
         //make the textfield empty here
