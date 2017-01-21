@@ -24,15 +24,16 @@ import javafx.stage.StageStyle;
 
 public class FXMLDocumentController implements Initializable {
     
-      @FXML
-    private AnchorPane rootPane;
+  @FXML
+    private JFXButton closButton;
+    
+   
+     @FXML
+    void closewindow(ActionEvent event) throws IOException {
+      ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
 
-    @FXML
-    private JFXButton lvlWord;
- 
-    
-    
-    @FXML
+     @FXML
     void word(ActionEvent event) throws IOException {
             ((Node)(event.getSource())).getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXML.fxml"));
@@ -44,8 +45,6 @@ public class FXMLDocumentController implements Initializable {
             stage.setScene(new Scene(root1));  
             stage.show();
     }
-   
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       

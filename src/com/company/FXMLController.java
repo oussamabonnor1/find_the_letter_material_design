@@ -7,12 +7,14 @@ package com.company;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 
 
@@ -28,6 +30,17 @@ public class FXMLController implements Initializable {
     @FXML
     private Label word;
 
+    
+    @FXML
+    private JFXButton closButton;
+    
+   
+     @FXML
+    void closewindow(ActionEvent event) throws IOException {
+      ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+    
+    
     int score = 0;
     boolean next = false;
 
