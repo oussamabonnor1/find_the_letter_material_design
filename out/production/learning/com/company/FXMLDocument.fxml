@@ -107,12 +107,12 @@
          </children></Pane>
       <Pane layoutX="-1.0" prefHeight="20.0" prefWidth="379.0" style="-fx-background-color: #009CB3;">
          <children>
-            <JFXButton layoutX="352.0" layoutY="-2.0" prefHeight="11.0" prefWidth="23.0" text="x" textFill="WHITE">
+            <JFXButton fx:id="closButton" layoutX="352.0" layoutY="-2.0" onAction="#closewindow" prefHeight="11.0" prefWidth="23.0" text="x" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="326.0" layoutY="-5.0" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
+            <JFXButton fx:id="minButton" layoutX="326.0" layoutY="-5.0" onAction="#OnMinimiz" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

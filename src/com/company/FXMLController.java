@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -40,7 +41,8 @@ public class FXMLController implements Initializable {
     @FXML
     private Label lblscore;
     
-    
+    @FXML
+    private ProgressBar Progress;
     
     @FXML
     private JFXButton closButton;
@@ -105,7 +107,7 @@ public class FXMLController implements Initializable {
 
         first.wordLetters.clear();
         first.organizedCharacters.clear();
-        h = d.nextInt(dictionary1.length);
+        h = d.nextInt(first.dictionary.size());
         first.testWord = first.dictionary.get(h-1);
         first.generateWord(first.decompose(first.testWord), d.nextInt(2));
 
@@ -156,6 +158,7 @@ public class FXMLController implements Initializable {
                     score = first.getScore();
                     state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                     state.setText("Good Job");
+                    Progress.setProgress(Progress.getProgress()+0.1);
                 } else {
                     score = first.getScore();
                     //state is the label
@@ -192,6 +195,7 @@ public class FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         state.setText("");
+        Progress.setProgress(0);
         creatingWord();
     }
 
