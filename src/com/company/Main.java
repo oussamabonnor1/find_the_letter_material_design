@@ -1,4 +1,4 @@
-package com.company;
+/*package com.company;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -181,5 +181,5 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         player.start(output);
     }
 
-}
+}*/
 
