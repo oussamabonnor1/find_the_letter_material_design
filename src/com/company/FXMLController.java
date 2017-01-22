@@ -101,7 +101,6 @@ public class FXMLController implements Initializable {
     public void creatingWord() {
 
         if (h != -1) {
-
             first.dictionary.remove(h);
         } else {
             for (int i = 0; i < dictionary1.length; i++) {
@@ -133,7 +132,6 @@ public class FXMLController implements Initializable {
 
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
-
             word.setText(word.getText() + first.organizedCharacters.get(i));
         }
     }

@@ -132,40 +132,36 @@ public class Word {
     }
 
     public boolean guessingCharachter(String c) {
+
         boolean valeur = false;
-        //correct answer:
-        //is the input's first character in the original word?
 
-        if (c.length()<= wordLetters.size()) {
-            if (wordLetters.contains(c.charAt(0))) {
-                for (int i = 0; i < c.length(); i++) {
-                    //is the input s size smaller (maybe half a word is submited
-                    if (c.length() < wordLetters.size()) {
-                        //in that case, to prevent hacking points, no half words are accepted
-                        if (organizedCharacters.contains(c.charAt(i))) return false;
-                    }
-                    //if it s not a half word, an already existing character:
-                    //if it s a word, make sure we don't give score ups for characters already obtained
-                    if (wordLetters.get(wordLetters.indexOf(c.charAt(i))) != organizedCharacters.get(i)) {
-                        int g = wordLetters.indexOf(c.charAt(i));
-                        organizedCharacters.set(g, c.charAt(i));
-                        setScore(getScore() + 5);
-                    }
-                }
-
+        //one letter
+        if (c.length()==1){
+            //letter is correct and not already entered
+            if (wordLetters.contains(c.charAt(0)) && !organizedCharacters.contains(c.charAt(0))) {
                 valeur = true;
+                int hiden = wordLetters.indexOf(c.charAt(0));
+                organizedCharacters.set(hiden,c.charAt(0));
             }
-
-            //wrong answer:
-            else if (!wordLetters.contains(c) || organizedCharacters.contains(c)) {
-                valeur = false;
-                if (getScore() > 0) setScore(getScore() - 1);
-                help++;
-            }
-        }else{
+            //not one letter, word smaller or greater then the presented word
+        }else if(c.length()<wordLetters.size() || c.length() > wordLetters.size()){
             valeur = false;
-        }
+        }else {
+            //word entered is same size as word presented
+            for (int i = 0; i < wordLetters.size(); i++) {
+                //is it the same letter -> word ?
+                if (wordLetters.get(i).equals(c.charAt(i))){
+                    valeur =true;
+                }else return false;
+            }
+            //if yes , show new word
+            if(valeur){
+                for (int i = 0; i < wordLetters.size(); i++) {
+                   organizedCharacters.set(i,c.charAt(i));
+                }
+            }
 
+        }
         return valeur;
     }
 
