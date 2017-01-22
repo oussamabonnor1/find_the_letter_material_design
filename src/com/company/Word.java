@@ -95,10 +95,7 @@ public class Word {
                     }
                 }
             }
-        }
-        //for level two:
-        if (index == 2) {
-            if (startIndex == 0) {
+            if (startIndex == 2) {
                 for (int i = 0; i < decomposedWord.size(); i++) {
                     if (i == 1 || i == 4 || i == 5 || i == 8 || i == 9) {
                         organizedCharacters.add(i, decomposedWord.get(i));
@@ -108,7 +105,7 @@ public class Word {
                 }
             }
 
-            if (startIndex == 1) {
+            if (startIndex == 3) {
                 for (int i = 0; i < decomposedWord.size(); i++) {
                     if (i == 0 || i == 5 || i == 6 || i == 7 || i == 11) {
                         organizedCharacters.add(i, decomposedWord.get(i));
@@ -117,6 +114,10 @@ public class Word {
                     }
                 }
             }
+        }
+        //for level two:
+        if (index == 2) {
+
         }
         return organizedCharacters;
 
