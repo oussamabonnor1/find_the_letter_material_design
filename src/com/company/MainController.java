@@ -23,7 +23,7 @@ import javafx.stage.StageStyle;
 
 
 
-public class FXMLDocumentController implements Initializable {
+public class MainController implements Initializable {
     
   @FXML
     private JFXButton closButton;
@@ -31,6 +31,8 @@ public class FXMLDocumentController implements Initializable {
    
     @FXML
     private JFXButton minButton;
+      @FXML
+    private JFXButton lvlAlone;
 
     @FXML
     void OnMinimiz(ActionEvent event) {
@@ -46,7 +48,7 @@ public class FXMLDocumentController implements Initializable {
      @FXML
     void word(ActionEvent event) throws IOException {
             ((Node)(event.getSource())).getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXML.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainWordFXML.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -55,6 +57,21 @@ public class FXMLDocumentController implements Initializable {
             stage.setScene(new Scene(root1));  
             stage.show();
     }
+    
+    
+    @FXML
+    void Alone(ActionEvent event) throws IOException {
+           ((Node)(event.getSource())).getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainAloneFXML.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("ABC");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       

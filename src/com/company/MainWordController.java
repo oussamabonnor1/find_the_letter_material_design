@@ -36,7 +36,7 @@ import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
 
-public class FXMLController implements Initializable {
+public class MainWordController implements Initializable {
     @FXML
     private JFXButton submit;
 
@@ -66,7 +66,7 @@ public class FXMLController implements Initializable {
     @FXML
     void OnBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);

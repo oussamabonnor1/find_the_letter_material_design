@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FindTheLetter.jar" size="904028" download="eager" />
+    <jar href="FindTheLetter.jar" size="911907" download="eager" />
     <jar href="lib\jfoenix.jar" size="2183063" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="FindTheLetter" >
