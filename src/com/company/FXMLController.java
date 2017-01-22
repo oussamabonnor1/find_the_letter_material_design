@@ -7,10 +7,12 @@ package com.company;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,60 +42,59 @@ public class FXMLController implements Initializable {
 
     @FXML
     private Label lblscore;
-    
+
     @FXML
     private ProgressBar Progress;
-    
+
     @FXML
     private JFXButton closButton;
-    
-   @FXML
+
+    @FXML
     private JFXButton minButton;
     @FXML
     private JFXButton back;
-   
-   
+
+
     @FXML
     void OnBack(ActionEvent event) throws IOException {
-   ((Node)(event.getSource())).getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setTitle("ABC");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setTitle("ABC");
+        stage.setScene(new Scene(root1));
+        stage.show();
     }
-   
-   
+
+
     @FXML
     void OnMinimiz(ActionEvent event) {
-        Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
-            // is stage minimizable into task bar. (true | false)
-            stage.setIconified(true);
+        Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        // is stage minimizable into task bar. (true | false)
+        stage.setIconified(true);
     }
-     @FXML
+
+    @FXML
     void closewindow(ActionEvent event) throws IOException {
-      ((Node)(event.getSource())).getScene().getWindow().hide();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-    
-    
+
+
     int score = 0;
     boolean next = false;
 
-    String[] dictionary1 = {"house", "beach"};//, "heart", "children", "shower", "money", "luck"};
+    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck", "down", "campus", "project"};
     Word first = new Word(1, score, 0);
     int h = -1;
     Random d = new Random();
 
     public void creatingWord() {
 
-
         if (h != -1) {
-            for (int i = h; i < first.dictionary.size(); i++) {
-                first.dictionary.remove(h);
-            }
+
+            first.dictionary.remove(h);
         } else {
             for (int i = 0; i < dictionary1.length; i++) {
                 first.dictionary.add(dictionary1[i]);
@@ -101,7 +102,7 @@ public class FXMLController implements Initializable {
         }
 
         for (int i = 0; i < first.dictionary.size(); i++) {
-            System.out.println(i+" "+first.dictionary.get(i));
+            System.out.println(i + " " + first.dictionary.get(i));
         }
 
 
@@ -131,9 +132,7 @@ public class FXMLController implements Initializable {
 
     public void guess() {
 
-        if (next ==false) {
-            //answer is the textfield
-            //checking if the textfield is empty
+        if (next == false) {
             if (answer.getText().isEmpty()) {
                 //state is a label
                 state.setStyle("-fx-text-fill: #000000;-fx-alignment: center;");
@@ -142,11 +141,12 @@ public class FXMLController implements Initializable {
                 //in the guessingCharachter methode, insert the text in the textfield in lowercase
                 if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
-                    if (first.organizedCharacters.equals(first.wordLetters) && first.dictionary.size()>0) {
+                    if (first.organizedCharacters.equals(first.wordLetters)) {
                         //next button is activated
                         next = true;
                         submit.setText("Next");
                         updateWord();
+                        Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         // music(3);
                     } else {
@@ -158,7 +158,7 @@ public class FXMLController implements Initializable {
                     score = first.getScore();
                     state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                     state.setText("Good Job");
-                    Progress.setProgress(Progress.getProgress()+0.1);
+                    Progress.setProgress(Progress.getProgress() + 0.1);
                 } else {
                     score = first.getScore();
                     //state is the label
@@ -172,10 +172,14 @@ public class FXMLController implements Initializable {
         } else {
             if (first.dictionary.size() <= 1) {
                 //state is the label
-                submit.setText("Next Level");
+                submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level");
-                h=-1;
+                h = -1;
+                first.dictionary.remove(0);
+                next = false;
+                creatingWord();
+                Progress.setProgress(0);
             } else {
                 creatingWord();
                 //submit is the button / check button gets activated
@@ -183,6 +187,7 @@ public class FXMLController implements Initializable {
                 submit.setText("Check");
                 state.setText("");
             }
+
         }
 
     }

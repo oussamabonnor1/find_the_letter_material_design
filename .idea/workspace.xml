@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXMLController.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/FXMLController.class" />
+    <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="Graphic modifications, next level option added">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXMLDocument.fxml" afterPath="$PROJECT_DIR$/out/production/learning/com/company/FXMLDocument.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/FXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/FXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/FXMLDocument.fxml" afterPath="$PROJECT_DIR$/src/com/company/FXMLDocument.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +62,8 @@
       <file leaf-file-name="FXMLController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/FXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="178" column="18" lean-forward="true" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
+            <state relative-caret-position="352">
+              <caret line="155" column="21" lean-forward="true" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -572,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485042589343</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Graphic modifications, next level option added">
+      <created>1485079529975</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1485079529975</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -618,7 +622,8 @@
     <MESSAGE value="words elimination fixed with better handling" />
     <MESSAGE value="latest version Random modification" />
     <MESSAGE value="extreamly important exception handeled" />
-    <option name="LAST_COMMIT_MESSAGE" value="extreamly important exception handeled" />
+    <MESSAGE value="Graphic modifications, next level option added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graphic modifications, next level option added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1180,8 +1185,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="178" column="18" lean-forward="true" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
+        <state relative-caret-position="352">
+          <caret line="155" column="21" lean-forward="true" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
           <folding />
         </state>
       </provider>
