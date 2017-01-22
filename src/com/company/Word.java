@@ -124,33 +124,38 @@ public class Word {
     }
 
     public boolean guessingCharachter(String c) {
-        boolean valeur = true;
+        boolean valeur = false;
         //correct answer:
         //is the input's first character in the original word?
-        if (wordLetters.contains(c.charAt(0))) {
-            for (int i = 0; i < c.length(); i++) {
-                //is the input s size smaller (maybe half a word is submited
-                if(c.length()<wordLetters.size()){
-                    //in that case, to prevent hacking points, no half words are accepted
-                    if (organizedCharacters.contains(c.charAt(i))) return false;
+
+        if (c.length()<= wordLetters.size()) {
+            if (wordLetters.contains(c.charAt(0))) {
+                for (int i = 0; i < c.length(); i++) {
+                    //is the input s size smaller (maybe half a word is submited
+                    if (c.length() < wordLetters.size()) {
+                        //in that case, to prevent hacking points, no half words are accepted
+                        if (organizedCharacters.contains(c.charAt(i))) return false;
+                    }
+                    //if it s not a half word, an already existing character:
+                    //if it s a word, make sure we don't give score ups for characters already obtained
+                    if (wordLetters.get(wordLetters.indexOf(c.charAt(i))) != organizedCharacters.get(i)) {
+                        int g = wordLetters.indexOf(c.charAt(i));
+                        organizedCharacters.set(g, c.charAt(i));
+                        setScore(getScore() + 5);
+                    }
                 }
-                //if it s not a half word, an already existing character:
-                //if it s a word, make sure we don't give score ups for characters already obtained
-                if (wordLetters.get(wordLetters.indexOf(c.charAt(i))) !=organizedCharacters.get(i)) {
-                    int g = wordLetters.indexOf(c.charAt(i));
-                    organizedCharacters.set(g, c.charAt(i));
-                    setScore(getScore()+5);
-                }
+
+                valeur = true;
             }
 
-            valeur = true;
-        }
-
-        //wrong answer:
-        else if (!wordLetters.contains(c) || organizedCharacters.contains(c)) {
+            //wrong answer:
+            else if (!wordLetters.contains(c) || organizedCharacters.contains(c)) {
+                valeur = false;
+                if (getScore() > 0) setScore(getScore() - 1);
+                help++;
+            }
+        }else{
             valeur = false;
-            if(getScore() > 0) setScore(getScore()-1);
-            help++;
         }
 
         return valeur;
