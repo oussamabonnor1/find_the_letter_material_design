@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -117,7 +118,14 @@ public class Word {
         }
         //for level two:
         if (index == 2) {
-
+            int hiden = new Integer(new Random().nextInt(decomposedWord.size()));
+            for (int i = 0; i < decomposedWord.size(); i++) {
+                if (i==hiden) {
+                    organizedCharacters.add(i, decomposedWord.get(i));
+                } else {
+                    organizedCharacters.add(i, '-');
+                }
+            }
         }
         return organizedCharacters;
 

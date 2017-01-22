@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXMLController.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/FXMLController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/FXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/FXMLController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Word.java" afterPath="$PROJECT_DIR$/src/com/company/Word.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +43,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
               <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding />
+              <folding>
+                <element signature="e#0#912#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#879#880#0" expanded="false" />
+                <element signature="e#907#908#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,8 +69,8 @@
       <file leaf-file-name="FXMLController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/FXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="194" column="39" lean-forward="false" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
+            <state relative-caret-position="176">
+              <caret line="96" column="27" lean-forward="false" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#updateWord#0;class#FXMLController#0" expanded="false" />
@@ -77,12 +83,10 @@
       <file leaf-file-name="Word.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="145" column="17" lean-forward="false" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
+            <state relative-caret-position="188">
+              <caret line="122" column="22" lean-forward="false" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
               <folding>
-                <element signature="method#Word#0;class#Word#0" expanded="false" />
                 <element signature="method#decompose#0;class#Word#0" expanded="false" />
-                <element signature="method#generateWord#0;class#Word#0" expanded="false" />
                 <element signature="method#help1#0;class#Word#0" expanded="false" />
               </folding>
             </state>
@@ -127,7 +131,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -605,7 +611,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485085553757</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="textfield fixing and label improved">
+      <created>1485117550112</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1485117550112</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -655,7 +668,8 @@
     <MESSAGE value="Fixed everything again, new version 2.0" />
     <MESSAGE value="new patterns" />
     <MESSAGE value="fixed potentiel user hacking" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed potentiel user hacking" />
+    <MESSAGE value="textfield fixing and label improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="textfield fixing and label improved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -722,7 +736,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -731,9 +747,7 @@
         <state relative-caret-position="3014">
           <caret line="150" column="31" lean-forward="false" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -805,7 +819,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -814,9 +830,7 @@
         <state relative-caret-position="3014">
           <caret line="150" column="31" lean-forward="false" selection-start-line="150" selection-start-column="31" selection-end-line="150" selection-end-column="31" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -847,9 +861,7 @@
         <state relative-caret-position="880">
           <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -881,9 +893,7 @@
         <state relative-caret-position="880">
           <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -895,9 +905,7 @@
         <state relative-caret-position="1210">
           <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -929,9 +937,7 @@
         <state relative-caret-position="1210">
           <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -963,9 +969,7 @@
         <state relative-caret-position="1320">
           <caret line="142" column="15" lean-forward="true" selection-start-line="142" selection-start-column="15" selection-end-line="142" selection-end-column="15" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -997,9 +1001,7 @@
         <state relative-caret-position="154">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
@@ -1045,7 +1047,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1088,19 +1092,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="145" column="17" lean-forward="false" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
           <folding>
-            <element signature="method#Word#0;class#Word#0" expanded="false" />
-            <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
-            <element signature="method#help1#0;class#Word#0" expanded="false" />
+            <element signature="e#0#912#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#879#880#0" expanded="false" />
+            <element signature="e#907#908#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1127,10 +1123,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="122" column="22" lean-forward="false" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+          <folding>
+            <element signature="method#decompose#0;class#Word#0" expanded="false" />
+            <element signature="method#help1#0;class#Word#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="194" column="39" lean-forward="false" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
+        <state relative-caret-position="176">
+          <caret line="96" column="27" lean-forward="false" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#updateWord#0;class#FXMLController#0" expanded="false" />
