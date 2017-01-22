@@ -19,12 +19,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -151,6 +153,9 @@ public class FXMLController implements Initializable {
                         //next button is activated
                         next = true;
                         submit.setText("Next");
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("You finished this word !");
+                        answer.setDisable(true);
                         updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
@@ -159,12 +164,12 @@ public class FXMLController implements Initializable {
                         //music(1);
                         //modifie the word, automaticaly
                         updateWord();
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("Good Job");
                     }
                     //state is the label
                     score = first.getScore();
-                    state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
-                    state.setText("Good Job");
-                    Progress.setProgress(Progress.getProgress() + 0.1);
+
                 } else {
                     score = first.getScore();
                     //state is the label
@@ -180,13 +185,14 @@ public class FXMLController implements Initializable {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
-                state.setText("You Finished this Level");
+                state.setText("You Finished this Level !");
                 h = -1;
                 first.dictionary.remove(0);
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);
             } else {
+                answer.setDisable(false);
                 creatingWord();
                 //submit is the button / check button gets activated
                 next = false;
