@@ -8,6 +8,8 @@ package com.company;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
@@ -26,6 +28,10 @@ import javafx.scene.control.ProgressBar;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sun.audio.AudioData;
+import sun.audio.AudioDataStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 
 public class FXMLController implements Initializable {
@@ -110,7 +116,7 @@ public class FXMLController implements Initializable {
         first.organizedCharacters.clear();
         h = d.nextInt(first.dictionary.size());
         first.testWord = first.dictionary.get(h);
-        first.generateWord(first.decompose(first.testWord), d.nextInt(2));
+        first.generateWord(first.decompose(first.testWord), d.nextInt(4));
 
         //make the textfield empty here
         answer.setText("");
@@ -150,7 +156,7 @@ public class FXMLController implements Initializable {
                         //sound effects
                         // music(3);
                     } else {
-                        // music(1);
+                        //music(1);
                         //modifie the word, automaticaly
                         updateWord();
                     }
@@ -205,6 +211,31 @@ public class FXMLController implements Initializable {
         state.setText("");
         Progress.setProgress(0);
         creatingWord();
+    }
+
+    public void music(int i) {
+        AudioPlayer player = AudioPlayer.player;
+        AudioData data;
+        AudioDataStream output = null;
+        AudioStream background = null;
+
+        try {
+            if (i == 1) {
+                background = new AudioStream(new FileInputStream(new File("com.company\\Correct-answer.wav")));
+            }
+            if (i == 2) {
+                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Wrong-answer-sound-effect.wav"));
+            }
+            if (i == 3) {
+                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Next-Level-Sound.wav"));
+            }
+
+            data = background.getData();
+            output = new AudioDataStream(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.start(output);
     }
 
 }
