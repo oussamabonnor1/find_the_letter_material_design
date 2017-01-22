@@ -94,7 +94,7 @@ public class MainAloneFXMLController implements Initializable {
     int score = 0;
     boolean next = false;
 
-    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck", "down", "campus", "project"};
+    String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
     Word first = new Word(2, score, 0);
     int h = -1;
     Random d = new Random();

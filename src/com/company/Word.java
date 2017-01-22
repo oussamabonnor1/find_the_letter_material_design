@@ -120,7 +120,7 @@ public class Word {
         if (index == 2) {
             int hiden = new Integer(new Random().nextInt(decomposedWord.size()));
             for (int i = 0; i < decomposedWord.size(); i++) {
-                if (i==hiden) {
+                if (i == hiden) {
                     organizedCharacters.add(i, decomposedWord.get(i));
                 } else {
                     organizedCharacters.add(i, '-');
@@ -136,28 +136,39 @@ public class Word {
         boolean valeur = false;
 
         //one letter
-        if (c.length()==1){
+        if (c.length() == 1) {
             //letter is correct and not already entered
             if (wordLetters.contains(c.charAt(0)) && !organizedCharacters.contains(c.charAt(0))) {
                 valeur = true;
-                int hiden = wordLetters.indexOf(c.charAt(0));
-                organizedCharacters.set(hiden,c.charAt(0));
+                for (int i = 0; i < wordLetters.size(); i++) {
+                    //each time the letter s found
+                    if (wordLetters.get(i).equals(c.charAt(0))) {
+                        organizedCharacters.set(i, c.charAt(0));
+                        score+=5;
+                    }
+                }
+
             }
             //not one letter, word smaller or greater then the presented word
-        }else if(c.length()<wordLetters.size() || c.length() > wordLetters.size()){
+        } else if (c.length() < wordLetters.size() || c.length() > wordLetters.size()) {
             valeur = false;
-        }else {
+            score-=3;
+        } else {
             //word entered is same size as word presented
             for (int i = 0; i < wordLetters.size(); i++) {
                 //is it the same letter -> word ?
-                if (wordLetters.get(i).equals(c.charAt(i))){
-                    valeur =true;
-                }else return false;
+                if (wordLetters.get(i).equals(c.charAt(i))) {
+                    valeur = true;
+                } else {
+                    score-=3;
+                    return false;
+                }
             }
             //if yes , show new word
-            if(valeur){
+            if (valeur) {
+                score+=5;
                 for (int i = 0; i < wordLetters.size(); i++) {
-                   organizedCharacters.set(i,c.charAt(i));
+                    organizedCharacters.set(i, c.charAt(i));
                 }
             }
 
