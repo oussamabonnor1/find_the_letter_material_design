@@ -38,7 +38,7 @@ import javafx.stage.StageStyle;
  */
 public class MainAloneFXMLController implements Initializable {
 
-        @FXML
+    @FXML
     private Label lblscore;
 
     @FXML
@@ -91,15 +91,132 @@ public class MainAloneFXMLController implements Initializable {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
+    int score = 0;
+    boolean next = false;
+
+    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck", "down", "campus", "project"};
+    Word first = new Word(2, score, 0);
+    int h = -1;
+    Random d = new Random();
+
+    public void creatingWord() {
+
+        if (h != -1) {
+            first.dictionary.remove(h);
+        } else {
+            for (int i = 0; i < dictionary1.length; i++) {
+                first.dictionary.add(dictionary1[i]);
+            }
+        }
+
+        for (int i = 0; i < first.dictionary.size(); i++) {
+            System.out.println(i + " " + first.dictionary.get(i));
+        }
+
+
+        first.wordLetters.clear();
+        first.organizedCharacters.clear();
+        h = d.nextInt(first.dictionary.size());
+        first.testWord = first.dictionary.get(h);
+        first.generateWord(first.decompose(first.testWord), d.nextInt(4));
+
+        //make the textfield empty here
+        answer.setText("");
+        word.setText("");
+        for (int i = 0; i < first.organizedCharacters.size(); i++) {
+            word.setText(word.getText() + first.organizedCharacters.get(i));
+        }
+
+    }
+
+    public void updateWord() {
+
+        word.setText("");
+        for (int i = 0; i < first.organizedCharacters.size(); i++) {
+            word.setText(word.getText() + first.organizedCharacters.get(i));
+        }
+    }
+
+    public void guess() {
+
+        if (next == false) {
+            if (answer.getText().isEmpty()) {
+                //state is a label
+                state.setStyle("-fx-text-fill: #000000;-fx-alignment: center;");
+                state.setText("Writte at least one letter !");
+            } else {
+                //in the guessingCharachter methode, insert the text in the textfield in lowercase
+                if (first.guessingCharachter(answer.getText().toLowerCase())) {
+
+                    if (first.organizedCharacters.equals(first.wordLetters)) {
+                        //next button is activated
+                        next = true;
+                        submit.setText("Next");
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("You finished this word !");
+                        answer.setDisable(true);
+                        updateWord();
+                        Progress.setProgress(Progress.getProgress() + 0.1);
+                        //sound effects
+                        // music(3);
+                    } else {
+                        //music(1);
+                        //modifie the word, automaticaly
+                        updateWord();
+                        state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                        state.setText("Good Job");
+                    }
+                    //state is the label
+                    score = first.getScore();
+
+                } else {
+                    score = first.getScore();
+                    //state is the label
+                    state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
+                    state.setText("wrong, guess again !");
+                    //  music(2);
+                }
+                //answer is the textfield
+                answer.setText("");
+            }
+        } else {
+            if (first.dictionary.size() <= 1) {
+                //state is the label
+                submit.setText("Check");
+                state.setStyle("fx-text-fill:#000000;");
+                state.setText("You Finished this Level !");
+                h = -1;
+                first.dictionary.remove(0);
+                next = false;
+                creatingWord();
+                Progress.setProgress(0);
+            } else {
+                answer.setDisable(false);
+                creatingWord();
+                //submit is the button / check button gets activated
+                next = false;
+                submit.setText("Check");
+                state.setText("");
+            }
+
+        }
+
+    }
+
     @FXML
     void icheck(ActionEvent event) {
 
-        
-        
+        guess();
+        String str = Integer.toString(score);
+        lblscore.setText(str + " Points");
+
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-    }    
-    
+        state.setText("");
+        Progress.setProgress(0);
+        creatingWord();
+    }
+
 }
