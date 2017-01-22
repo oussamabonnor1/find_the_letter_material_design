@@ -82,7 +82,7 @@ public class FXMLController implements Initializable {
     int score = 0;
     boolean next = false;
 
-    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck"};
+    String[] dictionary1 = {"house", "beach"};//, "heart", "children", "shower", "money", "luck"};
     Word first = new Word(1, score, 0);
     int h = -1;
     Random d = new Random();
@@ -142,10 +142,11 @@ public class FXMLController implements Initializable {
                 //in the guessingCharachter methode, insert the text in the textfield in lowercase
                 if (first.guessingCharachter(answer.getText().toLowerCase())) {
 
-                    if (first.organizedCharacters.equals(first.wordLetters)) {
+                    if (first.organizedCharacters.equals(first.wordLetters) && first.dictionary.size()>0) {
                         //next button is activated
                         next = true;
                         submit.setText("Next");
+                        updateWord();
                         //sound effects
                         // music(3);
                     } else {
@@ -169,10 +170,12 @@ public class FXMLController implements Initializable {
                 answer.setText("");
             }
         } else {
-            if (first.dictionary.size() < 1) {
+            if (first.dictionary.size() <= 1) {
                 //state is the label
+                submit.setText("Next Level");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level");
+                h=-1;
             } else {
                 creatingWord();
                 //submit is the button / check button gets activated

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="614.0" prefWidth="371.0" style="-fx-background-color: #546F7A;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="614.0" prefWidth="371.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.FXMLDocumentController">
    <children>
-      <JFXTabPane layoutY="107.0" prefHeight="507.0" prefWidth="347.0" style="-fx-background-color: #546F7A;">
+      <JFXTabPane layoutY="107.0" prefHeight="507.0" prefWidth="347.0" style="-fx-background-color: #fff;">
          <tabs>
             <Tab text="         Game         ">
               <content>
