@@ -155,10 +155,8 @@ public class MainImagesFXMLController implements Initializable {
             //NEXTING AND DICTIONARY IS USED UP
             if (used.size() == dictionary1.size()) {
                 submit.setDisable(true);
-                word.setText("Congratulations!\nyou finished this category!");
-                word.setAlignment(Pos.CENTER);
-                word.setTextAlignment(TextAlignment.CENTER);
-                word.setFont(Font.font("", FontWeight.BOLD, 25));
+                state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                state.setText("you finished them all !");
                 answer.setDisable(true);
             } else if (Progress.getProgress() == 1) {
                 //DICTIONARY STILL AND PROGRESS BAR USED UP 5LEVEL OVER°
@@ -232,6 +230,8 @@ public class MainImagesFXMLController implements Initializable {
         Progress.setProgress(0);
         currentLevel = 1;
         state.setText("");
+        used.clear();
+        dictionary1.clear();
         reading();
         size = dictionary1.size() / 5;
         level.setText("Level: " + currentLevel + "/" + size);

@@ -66,14 +66,16 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="175">
-              <caret line="155" column="51" lean-forward="false" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
+              <caret line="157" column="53" lean-forward="false" selection-start-line="157" selection-start-column="53" selection-end-line="157" selection-end-column="53" />
               <folding>
                 <element signature="method#OnBack#0;class#MainImagesFXMLController#0" expanded="false" />
                 <element signature="method#OnMinimiz#0;class#MainImagesFXMLController#0" expanded="false" />
                 <element signature="method#closewindow#0;class#MainImagesFXMLController#0" expanded="false" />
-                <element signature="method#creatImage#0;class#MainImagesFXMLController#0" expanded="false" />
-                <element signature="method#reading#0;class#MainImagesFXMLController#0" expanded="false" />
-                <element signature="method#music#0;class#MainImagesFXMLController#0" expanded="false" />
+                <marker date="1485212905011" expanded="false" signature="5907:6409" ph="{...}" />
+                <marker date="1485212905011" expanded="false" signature="6435:6446" ph=" { " />
+                <marker date="1485212905011" expanded="false" signature="6469:6475" ph=" }" />
+                <marker date="1485212905011" expanded="false" signature="6496:6924" ph="{...}" />
+                <marker date="1485212905011" expanded="false" signature="7459:8305" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -250,7 +252,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/company/MainController.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/company/MainFXML.fxml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -258,6 +262,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/company/MainTextFXML.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -791,7 +796,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485207701226</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="finishing game bug fixed in image category">
+      <created>1485212084786</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1485212084786</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -854,7 +866,8 @@
     <MESSAGE value="Fully fonctioning 3 categories, word, alone, image, waiting to upload new images and &#10;dictionary." />
     <MESSAGE value="fully fonctioning 3 categories along with 15 images choice" />
     <MESSAGE value="images upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="images upload" />
+    <MESSAGE value="finishing game bug fixed in image category" />
+    <option name="LAST_COMMIT_MESSAGE" value="finishing game bug fixed in image category" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1261,14 +1274,16 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
-          <caret line="155" column="51" lean-forward="false" selection-start-line="155" selection-start-column="51" selection-end-line="155" selection-end-column="51" />
+          <caret line="157" column="53" lean-forward="false" selection-start-line="157" selection-start-column="53" selection-end-line="157" selection-end-column="53" />
           <folding>
             <element signature="method#OnBack#0;class#MainImagesFXMLController#0" expanded="false" />
             <element signature="method#OnMinimiz#0;class#MainImagesFXMLController#0" expanded="false" />
             <element signature="method#closewindow#0;class#MainImagesFXMLController#0" expanded="false" />
-            <element signature="method#creatImage#0;class#MainImagesFXMLController#0" expanded="false" />
-            <element signature="method#reading#0;class#MainImagesFXMLController#0" expanded="false" />
-            <element signature="method#music#0;class#MainImagesFXMLController#0" expanded="false" />
+            <marker date="1485212905011" expanded="false" signature="5907:6409" ph="{...}" />
+            <marker date="1485212905011" expanded="false" signature="6435:6446" ph=" { " />
+            <marker date="1485212905011" expanded="false" signature="6469:6475" ph=" }" />
+            <marker date="1485212905011" expanded="false" signature="6496:6924" ph="{...}" />
+            <marker date="1485212905011" expanded="false" signature="7459:8305" ph="{...}" />
           </folding>
         </state>
       </provider>
