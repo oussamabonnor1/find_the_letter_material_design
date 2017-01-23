@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXML.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXMLDocument.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FXMLDocumentController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/FindTheLetter.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/FindTheLetter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Word.java" afterPath="$PROJECT_DIR$/src/com/company/Word.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,27 +45,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainAloneFXMLController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainAloneFXMLController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="96" column="112" lean-forward="false" selection-start-line="96" selection-start-column="112" selection-end-line="96" selection-end-column="112" />
+            <state relative-caret-position="402">
+              <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
               <folding>
-                <element signature="method#creatingWord#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#updateWord#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#guess#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#icheck#0;class#MainAloneFXMLController#0" expanded="false" />
-                <element signature="method#initialize#0;class#MainAloneFXMLController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Word.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Word.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="168" column="25" lean-forward="false" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+            <state relative-caret-position="393">
+              <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
               <folding>
                 <element signature="method#decompose#0;class#Word#0" expanded="false" />
                 <element signature="method#generateWord#0;class#Word#0" expanded="false" />
@@ -115,8 +118,8 @@
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/FXMLDocument.fxml" />
         <option value="$PROJECT_DIR$/src/com/company/FXMLController.java" />
-        <option value="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/Word.java" />
+        <option value="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
       </list>
     </option>
   </component>
@@ -209,6 +212,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Oussama\IdeaProjects\find_the_letter_material_design\src\com\company" />
       <recent name="C:\Users\Oussama\Documents\GitHub\find_the_letter\src\com\company" />
       <recent name="C:\Users\Oussama\Documents\GitHub\find_the_letter\src\findtheletter" />
       <recent name="C:\Users\Oussama\Documents\GitHub\find_the_letter\src" />
@@ -719,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485126092644</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="word with similar letters used more than once are accepted">
+      <created>1485128517208</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485128517208</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -773,7 +784,8 @@
     <MESSAGE value="Alone mode fonctions created" />
     <MESSAGE value="fixing the word checking methodes (commented code)" />
     <MESSAGE value="alone category created, its up and running" />
-    <option name="LAST_COMMIT_MESSAGE" value="alone category created, its up and running" />
+    <MESSAGE value="word with similar letters used more than once are accepted" />
+    <option name="LAST_COMMIT_MESSAGE" value="word with similar letters used more than once are accepted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1150,14 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FindTheLetter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1212,28 +1216,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="96" column="112" lean-forward="false" selection-start-line="96" selection-start-column="112" selection-end-line="96" selection-end-column="112" />
-          <folding>
-            <element signature="method#creatingWord#0;class#MainAloneFXMLController#0" expanded="false" />
-            <element signature="method#updateWord#0;class#MainAloneFXMLController#0" expanded="false" />
-            <element signature="method#guess#0;class#MainAloneFXMLController#0" expanded="false" />
-            <element signature="method#icheck#0;class#MainAloneFXMLController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainAloneFXMLController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="168" column="25" lean-forward="false" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+        <state relative-caret-position="393">
+          <caret line="216" column="0" lean-forward="false" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
           <folding>
             <element signature="method#decompose#0;class#Word#0" expanded="false" />
             <element signature="method#generateWord#0;class#Word#0" expanded="false" />
             <element signature="method#help1#0;class#Word#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
+          <folding>
+            <element signature="method#updateWord#0;class#MainAloneFXMLController#0" expanded="false" />
+            <element signature="method#guess#0;class#MainAloneFXMLController#0" expanded="false" />
+            <element signature="method#icheck#0;class#MainAloneFXMLController#0" expanded="false" />
           </folding>
         </state>
       </provider>

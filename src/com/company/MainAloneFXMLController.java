@@ -10,10 +10,14 @@ import com.jfoenix.controls.JFXTextField;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,11 +99,27 @@ public class MainAloneFXMLController implements Initializable {
     boolean next = false;
 
     String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
+    //ArrayList<String> dictionary1 = new ArrayList<>();
     Word first = new Word(2, score, 0);
     int h = -1;
     Random d = new Random();
 
-    public void creatingWord() {
+/*    void reading(){
+        //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
+        File file = new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\File.txt");
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while(sc.hasNextLine()){
+            String s = sc.nextLine();
+            dictionary1.add(s);
+        }
+    }*/
+
+    void creatingWord() {
 
         if (h != -1) {
             first.dictionary.remove(h);
@@ -216,6 +236,7 @@ public class MainAloneFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         state.setText("");
         Progress.setProgress(0);
+        //reading();
         creatingWord();
     }
 
