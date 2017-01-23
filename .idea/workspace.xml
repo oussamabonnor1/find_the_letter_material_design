@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/learning/com/company/Photos.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainImagesFXML.fxml" afterPath="$PROJECT_DIR$/src/com/company/MainImagesFXML.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainWordController.java" afterPath="$PROJECT_DIR$/src/com/company/MainWordController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="329">
-              <caret line="147" column="31" lean-forward="true" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+              <caret line="147" column="31" lean-forward="false" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
               <folding>
                 <element signature="method#OnBack#0;class#MainImagesFXMLController#0" expanded="false" />
                 <element signature="method#OnMinimiz#0;class#MainImagesFXMLController#0" expanded="false" />
@@ -670,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485193678107</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fully fonctioning 3 categories along with 15 images choice">
+      <created>1485207611910</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1485207611910</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -731,7 +736,8 @@
     <MESSAGE value="level label" />
     <MESSAGE value="images integratioon" />
     <MESSAGE value="Fully fonctioning 3 categories, word, alone, image, waiting to upload new images and &#10;dictionary." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully fonctioning 3 categories, word, alone, image, waiting to upload new images and &#10;dictionary." />
+    <MESSAGE value="fully fonctioning 3 categories along with 15 images choice" />
+    <option name="LAST_COMMIT_MESSAGE" value="fully fonctioning 3 categories along with 15 images choice" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1138,7 +1144,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
-          <caret line="147" column="31" lean-forward="true" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+          <caret line="147" column="31" lean-forward="false" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
           <folding>
             <element signature="method#OnBack#0;class#MainImagesFXMLController#0" expanded="false" />
             <element signature="method#OnMinimiz#0;class#MainImagesFXMLController#0" expanded="false" />

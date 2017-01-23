@@ -146,7 +146,6 @@ public class MainImagesFXMLController implements Initializable {
                 } else {
                     //NOT CORRECT
                     score -= 3;
-                    //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
