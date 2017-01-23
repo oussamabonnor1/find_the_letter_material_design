@@ -7,9 +7,18 @@ package com.company;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.scene.image.Image;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +29,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,9 +41,8 @@ import javafx.stage.StageStyle;
  */
 public class MainImagesFXMLController implements Initializable {
 
-    
-    
-        @FXML
+
+    @FXML
     private JFXButton submit;
 
     @FXML
@@ -58,14 +67,13 @@ public class MainImagesFXMLController implements Initializable {
     @FXML
     private JFXButton back;
 
-    
-    
-    
-    
-    
-    
-    
-     @FXML
+    @FXML
+    private ImageView view;
+
+    Image image;
+    int currentImage;
+
+    @FXML
     void OnBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
@@ -90,14 +98,31 @@ public class MainImagesFXMLController implements Initializable {
     void closewindow(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-    
+
     @FXML
     void icheck(ActionEvent event) {
-
+        try {
+            creatImage();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
+
+    void creatImage() throws FileNotFoundException {
+        currentImage++;
+        image = new Image(new FileInputStream(new File(String.valueOf(Paths.get("src/com/company/images/" + String.valueOf(currentImage) + ".png")))),200,150,false,false);
+        //image= new Image(new FileInputStream(new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\company\\images\\1.png")));
+        view.setImage(image);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        currentImage = 0;
+        try {
+            creatImage();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
