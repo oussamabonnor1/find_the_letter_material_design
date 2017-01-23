@@ -18,9 +18,9 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="336.0">
                      <children>
-                        <Pane layoutX="20.0" layoutY="40.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #FFFF8D;">
+                        <Pane layoutX="20.0" layoutY="40.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #5C6BC0;">
                            <children>
-                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #FFEE3D;">
+                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #3F51B5;">
                                  <children>
                                     <Label layoutX="52.0" layoutY="3.0" prefHeight="25.0" prefWidth="84.0" text="Word" textFill="WHITE">
                                        <font>
@@ -35,9 +35,9 @@
                               <DropShadow height="15.0" radius="7.0" width="15.0" />
                            </effect>
                         </Pane>
-                        <Pane layoutX="190.0" layoutY="40.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #BBF6CC;">
+                        <Pane layoutX="190.0" layoutY="40.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #26A69A;">
                            <children>
-                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #27E2BE;">
+                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #009688;">
                                  <children>
                                     <Label layoutX="43.0" layoutY="3.0" prefHeight="25.0" prefWidth="84.0" text="images" textFill="WHITE">
                                        <font>
@@ -52,24 +52,7 @@
                               <DropShadow height="15.0" radius="7.0" width="15.0" />
                            </effect>
                         </Pane>
-                        <Pane layoutX="20.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #B48CFB;">
-                           <children>
-                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #7D62AF;">
-                                 <children>
-                                    <Label layoutX="52.0" layoutY="3.0" prefHeight="25.0" prefWidth="84.0" text="Text" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <JFXButton layoutY="-1.0" prefHeight="191.0" prefWidth="150.0" ripplerFill="#6ad8e4" text=" " />
-                           </children>
-                           <effect>
-                              <DropShadow height="15.0" radius="7.0" width="15.0" />
-                           </effect>
-                        </Pane>
-                        <Pane layoutX="190.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #FD8880;">
+                        <Pane layoutX="24.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #FD8880;">
                            <children>
                               <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #FF4C59;">
                                  <children>
@@ -81,6 +64,23 @@
                                  </children>
                               </Pane>
                               <JFXButton fx:id="lvlAlone" layoutY="-1.0" onAction="#Alone" prefHeight="191.0" prefWidth="150.0" ripplerFill="#6ad8e4" text=" " />
+                           </children>
+                           <effect>
+                              <DropShadow height="15.0" radius="7.0" width="15.0" />
+                           </effect>
+                        </Pane>
+                        <Pane layoutX="190.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #BA68C8;">
+                           <children>
+                              <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #9C27B0;">
+                                 <children>
+                                    <Label layoutX="52.0" layoutY="3.0" prefHeight="25.0" prefWidth="84.0" text="Text" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <JFXButton layoutY="-1.0" prefHeight="191.0" prefWidth="150.0" ripplerFill="#6ad8e4" text=" " />
                            </children>
                            <effect>
                               <DropShadow height="15.0" radius="7.0" width="15.0" />
