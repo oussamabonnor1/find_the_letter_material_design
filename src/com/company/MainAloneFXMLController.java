@@ -76,6 +76,9 @@ public class MainAloneFXMLController implements Initializable {
     private JFXTextField answer;
 
     @FXML
+    private Label level;
+
+    @FXML
     void OnBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
@@ -108,6 +111,8 @@ public class MainAloneFXMLController implements Initializable {
     Word first = new Word(2, score, 0);
     int h = -1;
     Random d = new Random();
+    int currentLevel;
+    int size;
 
     void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
@@ -220,6 +225,8 @@ public class MainAloneFXMLController implements Initializable {
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
+                currentLevel++;
+                level.setText("level: "+currentLevel+"/"+size);
                 h = -1;
                 first.dictionary.remove(0);
                 next = false;
@@ -249,10 +256,15 @@ public class MainAloneFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        currentLevel =1;
         state.setText("");
         word.setFont(Font.font("",51));
         Progress.setProgress(0);
         reading();
+        size = (dictionary1.size()/10);
+        level.setText("level: "+currentLevel+"/"+size);
+        level.setFont(Font.font("",FontWeight.BOLD,18));
+        level.setTextAlignment(TextAlignment.CENTER);
         creatingWord();
     }
 

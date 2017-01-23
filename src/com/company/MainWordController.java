@@ -29,6 +29,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -62,8 +64,12 @@ public class MainWordController implements Initializable {
 
     @FXML
     private JFXButton minButton;
+
     @FXML
     private JFXButton back;
+
+    @FXML
+    private Label level;
 
 
     @FXML
@@ -95,6 +101,8 @@ public class MainWordController implements Initializable {
 
     int score = 0;
     boolean next = false;
+    int currentLevel;
+    int size;
 
     ArrayList<String> dictionary1 = new ArrayList<>();
     Word first = new Word(1, score, 0);
@@ -205,6 +213,8 @@ public class MainWordController implements Initializable {
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
                 h = -1;
+                currentLevel++;
+                level.setText("level: "+currentLevel+"/"+size);
                 first.dictionary.remove(0);
                 next = false;
                 creatingWord();
@@ -232,9 +242,14 @@ public class MainWordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        currentLevel = 1;
         state.setText("");
         Progress.setProgress(0);
         reading();
+        size = (dictionary1.size()/10);
+        level.setText("level: "+currentLevel+"/"+size);
+        level.setFont(Font.font("", FontWeight.BOLD,18));
+        level.setTextAlignment(TextAlignment.CENTER);
         creatingWord();
     }
 
