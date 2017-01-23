@@ -35,6 +35,9 @@ public class MainController implements Initializable {
     private JFXButton lvlAlone;
 
     @FXML
+    private JFXButton lvlimages;
+      
+    @FXML
     void OnMinimiz(ActionEvent event) {
         Stage stage = (Stage)((Button)event.getSource()).getScene().getWindow();
             // is stage minimizable into task bar. (true | false)
@@ -63,6 +66,19 @@ public class MainController implements Initializable {
     void Alone(ActionEvent event) throws IOException {
            ((Node)(event.getSource())).getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainAloneFXML.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setTitle("ABC");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+    }
+    
+     @FXML
+    void images(ActionEvent event) throws IOException {
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainImagesFXML.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
