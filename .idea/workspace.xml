@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/Image.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/company/images/Tick_Mark_Dark-512.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +46,8 @@
       <file leaf-file-name="MainAloneFXMLController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="262" column="18" lean-forward="true" selection-start-line="262" selection-start-column="18" selection-end-line="262" selection-end-column="18" />
+            <state relative-caret-position="298">
+              <caret line="108" column="117" lean-forward="false" selection-start-line="108" selection-start-column="117" selection-end-line="108" selection-end-column="117" />
               <folding>
                 <element signature="method#OnBack#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#OnMinimiz#0;class#MainAloneFXMLController#0" expanded="false" />
@@ -740,7 +737,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485173787690</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="level label">
+      <created>1485176397336</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1485176397336</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1203,8 +1207,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="262" column="18" lean-forward="true" selection-start-line="262" selection-start-column="18" selection-end-line="262" selection-end-column="18" />
+        <state relative-caret-position="298">
+          <caret line="108" column="117" lean-forward="false" selection-start-line="108" selection-start-column="117" selection-end-line="108" selection-end-column="117" />
           <folding>
             <element signature="method#OnBack#0;class#MainAloneFXMLController#0" expanded="false" />
             <element signature="method#OnMinimiz#0;class#MainAloneFXMLController#0" expanded="false" />
