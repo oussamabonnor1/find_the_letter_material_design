@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="375.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="com.company.MainAloneFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainAloneFXMLController">
      <children>
       <Pane prefHeight="269.0" prefWidth="381.0" style="-fx-background-color: #fe4c58;">
          <children>
@@ -44,6 +44,11 @@
                   </JFXButton>
                </children>
             </Pane>
+            <Label fx:id="level" alignment="CENTER" layoutX="139.0" layoutY="231.0" prefHeight="25.0" prefWidth="92.0" text="12/40" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children></Pane>
       <Label fx:id="word" alignment="CENTER" layoutY="330.0" prefHeight="74.0" prefWidth="381.0">
          <font>
