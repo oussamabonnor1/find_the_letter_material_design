@@ -10,10 +10,13 @@ import com.jfoenix.controls.JFXTextField;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -93,18 +96,35 @@ public class MainWordController implements Initializable {
     int score = 0;
     boolean next = false;
 
-    String[] dictionary1 = {"house", "beach", "heart", "children", "shower", "money", "luck", "down", "campus", "project"};
+    ArrayList<String> dictionary1 = new ArrayList<>();
     Word first = new Word(1, score, 0);
     int h = -1;
     Random d = new Random();
+
+    void reading() {
+        //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
+        File file = new File("src/com/company/dictionary/Alone.txt");
+        Scanner sc = null;
+
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (sc.hasNext()) {
+
+            String s = sc.next();
+            dictionary1.add(s);
+        }
+    }
 
     public void creatingWord() {
 
         if (h != -1) {
             first.dictionary.remove(h);
         } else {
-            for (int i = 0; i < dictionary1.length; i++) {
-                first.dictionary.add(dictionary1[i]);
+            for (int i = 0; i < dictionary1.size(); i++) {
+                first.dictionary.add(dictionary1.get(i));
             }
         }
 
@@ -157,9 +177,9 @@ public class MainWordController implements Initializable {
                         updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
-                        // music(3);
+                        music(3);
                     } else {
-                        //music(1);
+                        music(1);
                         //modifie the word, automaticaly
                         updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
@@ -173,7 +193,7 @@ public class MainWordController implements Initializable {
                     //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
-                    //  music(2);
+                    music(2);
                 }
                 //answer is the textfield
                 answer.setText("");
@@ -214,6 +234,7 @@ public class MainWordController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         state.setText("");
         Progress.setProgress(0);
+        reading();
         creatingWord();
     }
 
@@ -225,13 +246,13 @@ public class MainWordController implements Initializable {
 
         try {
             if (i == 1) {
-                background = new AudioStream(new FileInputStream(new File("com.company\\Correct-answer.wav")));
+                background = new AudioStream(new FileInputStream(new File("src/com/company/sound/Correct-answer.wav")));
             }
             if (i == 2) {
-                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Wrong-answer-sound-effect.wav"));
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Wrong-answer-sound-effect.wav"));
             }
             if (i == 3) {
-                background = new AudioStream(new FileInputStream("C:\\Users\\Oussama\\Documents\\GitHub\\find_the_letter\\src\\Next-Level-Sound.wav"));
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Next-Level-Sound.wav"));
             }
 
             data = background.getData();

@@ -36,6 +36,10 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sun.audio.AudioData;
+import sun.audio.AudioDataStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  * FXML Controller class
@@ -107,7 +111,7 @@ public class MainAloneFXMLController implements Initializable {
 
     void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
-        File file = new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\company\\File.txt");
+        File file = new File("src/com/company/dictionary/Alone.txt");
         Scanner sc = null;
 
         try {
@@ -182,9 +186,9 @@ public class MainAloneFXMLController implements Initializable {
                         updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
-                        // music(3);
+                         music(3);
                     } else {
-                        //music(1);
+                        music(1);
                         //modifie the word, automaticaly
                         updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
@@ -198,7 +202,7 @@ public class MainAloneFXMLController implements Initializable {
                     //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
-                    //  music(2);
+                      music(2);
                 }
                 //answer is the textfield
                 answer.setText("");
@@ -250,6 +254,31 @@ public class MainAloneFXMLController implements Initializable {
         Progress.setProgress(0);
         reading();
         creatingWord();
+    }
+
+    public void music(int i) {
+        AudioPlayer player = AudioPlayer.player;
+        AudioData data;
+        AudioDataStream output = null;
+        AudioStream background = null;
+
+        try {
+            if (i == 1) {
+                background = new AudioStream(new FileInputStream(new File("src/com/company/sound/Correct-answer.wav")));
+            }
+            if (i == 2) {
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Wrong-answer-sound-effect.wav"));
+            }
+            if (i == 3) {
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Next-Level-Sound.wav"));
+            }
+
+            data = background.getData();
+            output = new AudioDataStream(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.start(output);
     }
 
 }
