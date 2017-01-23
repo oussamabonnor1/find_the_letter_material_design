@@ -153,7 +153,7 @@ public class MainImagesFXMLController implements Initializable {
             }
         } else {
             //NEXTING AND DICTIONARY IS USED UP
-            if (used.size() == dictionary1.size()-1) {
+            if (used.size() == dictionary1.size()) {
                 submit.setDisable(true);
                 word.setText("Congratulations!\nyou finished this category!");
                 word.setAlignment(Pos.CENTER);

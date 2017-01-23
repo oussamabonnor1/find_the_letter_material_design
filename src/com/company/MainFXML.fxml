@@ -80,7 +80,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <JFXButton layoutY="-1.0" prefHeight="191.0" prefWidth="150.0" ripplerFill="#6ad8e4" text=" " />
+                              <JFXButton fx:id="lvlText" layoutY="-1.0" onAction="#Text" prefHeight="191.0" prefWidth="150.0" ripplerFill="#6ad8e4" text=" " />
                            </children>
                            <effect>
                               <DropShadow height="15.0" radius="7.0" width="15.0" />
