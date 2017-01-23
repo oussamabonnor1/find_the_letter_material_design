@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainWordController">
-   <children>
-      <Pane prefHeight="269.0" prefWidth="381.0" style="-fx-background-color: #3F51B5;">
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainAloneFXMLController">
+     <children>
+      <Pane prefHeight="269.0" prefWidth="381.0" style="-fx-background-color: #fe4c58;">
          <children>
             <Label layoutX="55.0" layoutY="173.0" prefHeight="38.0" prefWidth="290.0" text="Let's see if you can solve this one" textFill="WHITE">
                <font>
@@ -30,7 +30,7 @@
             </JFXButton>
             <Label alignment="CENTER" layoutX="170.0" layoutY="29.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="Avatar" />
             <ProgressBar fx:id="Progress" layoutX="65.0" layoutY="117.0" prefHeight="18.0" prefWidth="270.0" progress="0.0" />
-            <Pane prefHeight="20.0" prefWidth="381.0" style="-fx-background-color: #3F51B5;">
+            <Pane prefHeight="20.0" prefWidth="381.0" style="-fx-background-color: #FE4C58;">
                <children>
                   <JFXButton fx:id="closButton" layoutX="352.0" layoutY="-2.0" onAction="#closewindow" prefHeight="11.0" prefWidth="23.0" text="x" textFill="WHITE">
                      <font>
@@ -55,7 +55,7 @@
             <Font size="51.0" />
          </font>
       </Label>
-      <JFXButton fx:id="submit" layoutX="248.0" layoutY="553.0" onAction="#icheck" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 10%;" text="Check" textFill="WHITE">
+      <JFXButton fx:id="submit" layoutX="248.0" layoutY="542.0" onAction="#icheck" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #FE4C58; -fx-background-radius: 10%;" text="Check" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -65,12 +65,12 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="answer" alignment="CENTER" focusColor="#3f51b5" layoutX="124.0" layoutY="449.0" maxWidth="224.0" minWidth="139.0" prefHeight="38.0" prefWidth="139.0">
+      <JFXTextField fx:id="answer" alignment="CENTER" focusColor="#fe4c58" layoutX="124.0" layoutY="449.0" maxWidth="224.0" minWidth="139.0" prefHeight="38.0" prefWidth="139.0">
          <font>
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="239.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="+" textAlignment="CENTER" textFill="#3f51b5">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="239.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="+" textAlignment="CENTER" textFill="#fe4c58">
          <font>
             <Font size="33.0" />
          </font>
