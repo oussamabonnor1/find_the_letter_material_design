@@ -30,6 +30,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -82,7 +84,6 @@ public class MainAloneFXMLController implements Initializable {
         stage.show();
     }
 
-
     @FXML
     void OnMinimiz(ActionEvent event) {
         Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
@@ -98,34 +99,37 @@ public class MainAloneFXMLController implements Initializable {
     int score = 0;
     boolean next = false;
 
-    String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
-    //ArrayList<String> dictionary1 = new ArrayList<>();
+    //String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
+    ArrayList<String> dictionary1 = new ArrayList<>();
     Word first = new Word(2, score, 0);
     int h = -1;
     Random d = new Random();
 
-/*    void reading(){
+    void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
-        File file = new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\File.txt");
+        File file = new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\company\\File.txt");
         Scanner sc = null;
+
         try {
             sc = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        while(sc.hasNextLine()){
-            String s = sc.nextLine();
+        while (sc.hasNext()) {
+
+            String s = sc.next();
             dictionary1.add(s);
         }
-    }*/
+    }
 
     void creatingWord() {
 
         if (h != -1) {
             first.dictionary.remove(h);
         } else {
-            for (int i = 0; i < dictionary1.length; i++) {
-                first.dictionary.add(dictionary1[i]);
+            for (int i = 0; i < dictionary1.size(); i++) {
+                //first.dictionary.add(dictionary1[i]);
+                first.dictionary.add(dictionary1.get(i));
             }
         }
 
@@ -201,6 +205,13 @@ public class MainAloneFXMLController implements Initializable {
             }
         } else {
             if (first.dictionary.size() <= 1) {
+                submit.setDisable(true);
+                word.setText("Congratulations!\nyou finished this category!");
+                word.setAlignment(Pos.CENTER);
+                word.setTextAlignment(TextAlignment.CENTER);
+                word.setFont(Font.font("", FontWeight.BOLD,25));
+                answer.setDisable(true);
+            } else if(Progress.getProgress()==1) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
@@ -210,7 +221,7 @@ public class MainAloneFXMLController implements Initializable {
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);
-            } else {
+            } else{
                 answer.setDisable(false);
                 creatingWord();
                 //submit is the button / check button gets activated
@@ -235,8 +246,9 @@ public class MainAloneFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         state.setText("");
+        word.setFont(Font.font("",51));
         Progress.setProgress(0);
-        //reading();
+        reading();
         creatingWord();
     }
 

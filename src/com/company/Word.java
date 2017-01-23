@@ -160,7 +160,7 @@ public class Word {
                 if (wordLetters.get(i).equals(c.charAt(i))) {
                     valeur = true;
                 } else {
-                    score-=3;
+                    if(score > 0) score-=3;
                     return false;
                 }
             }
