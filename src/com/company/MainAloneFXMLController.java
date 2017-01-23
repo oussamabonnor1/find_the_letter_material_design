@@ -191,7 +191,7 @@ public class MainAloneFXMLController implements Initializable {
                         updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
-                         music(3);
+                        music(3);
 
                     } else {
                         music(1);
@@ -208,7 +208,7 @@ public class MainAloneFXMLController implements Initializable {
                     //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
-                      music(2);
+                    music(2);
                 }
                 //answer is the textfield
                 answer.setText("");
@@ -219,21 +219,21 @@ public class MainAloneFXMLController implements Initializable {
                 word.setText("Congratulations!\nyou finished this category!");
                 word.setAlignment(Pos.CENTER);
                 word.setTextAlignment(TextAlignment.CENTER);
-                word.setFont(Font.font("", FontWeight.BOLD,25));
+                word.setFont(Font.font("", FontWeight.BOLD, 25));
                 answer.setDisable(true);
-            } else if(Progress.getProgress()==1) {
+            } else if (Progress.getProgress() == 1) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
                 currentLevel++;
-                level.setText("level: "+currentLevel+"/"+size);
+                level.setText("level: " + currentLevel + "/" + size);
                 h = -1;
                 first.dictionary.remove(0);
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);
-            } else{
+            } else {
                 answer.setDisable(false);
                 creatingWord();
                 //submit is the button / check button gets activated
@@ -257,14 +257,14 @@ public class MainAloneFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currentLevel =1;
+        currentLevel = 1;
         state.setText("");
-        word.setFont(Font.font("",51));
+        word.setFont(Font.font("", 51));
         Progress.setProgress(0);
         reading();
-        size = (dictionary1.size()/10);
-        level.setText("level: "+currentLevel+"/"+size);
-        level.setFont(Font.font("",FontWeight.BOLD,18));
+        size = (dictionary1.size() / 10);
+        level.setText("level: " + currentLevel + "/" + size);
+        level.setFont(Font.font("", FontWeight.BOLD, 18));
         level.setTextAlignment(TextAlignment.CENTER);
         creatingWord();
     }

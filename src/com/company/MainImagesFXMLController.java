@@ -8,6 +8,7 @@ package com.company;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 
 import java.io.File;
@@ -33,6 +34,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -61,9 +65,6 @@ public class MainImagesFXMLController implements Initializable {
     private Label word;
 
     @FXML
-    private Label lblscore;
-
-    @FXML
     private ProgressBar Progress;
 
     @FXML
@@ -77,12 +78,21 @@ public class MainImagesFXMLController implements Initializable {
     @FXML
     private ImageView view;
 
+    @FXML
+    private Label lblscore;
+
+    @FXML
+    private Label level;
+
     Image image;
     int currentImage;
     ArrayList<String> dictionary1 = new ArrayList<>();
+    ArrayList<Integer> used = new ArrayList<>();
     Random random = new Random();
     boolean next;
     int score;
+    int size;
+    int currentLevel;
 
     @FXML
     void OnBack(ActionEvent event) throws IOException {
@@ -113,12 +123,15 @@ public class MainImagesFXMLController implements Initializable {
     @FXML
     void icheck(ActionEvent event) {
 
+        //CHECKING
         if (!next) {
+            //EMPTY
             if (answer.getText().isEmpty()) {
                 //state is a label
                 state.setStyle("-fx-text-fill: #000000;-fx-alignment: center;");
                 state.setText("Writte at least one letter !");
             } else {
+                //NOT EMPTY AND CORRECT
                 if (answer.getText().toLowerCase().equals(dictionary1.get(currentImage))) {
                     next = true;
                     submit.setText("Next");
@@ -126,12 +139,13 @@ public class MainImagesFXMLController implements Initializable {
                     state.setText("You guessed this word !");
                     answer.setDisable(true);
                     answer.setDisable(true);
-                    Progress.setProgress(Progress.getProgress() + 0.1);
-                    score += 5;
+                    Progress.setProgress(Progress.getProgress() + 0.2);
+                    score += 15;
                     //sound effects
                     music(1);
                 } else {
-                    score -= 1;
+                    //NOT CORRECT
+                    score -= 3;
                     //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
@@ -139,31 +153,61 @@ public class MainImagesFXMLController implements Initializable {
                 }
             }
         } else {
-            next = false;
-            submit.setText("Check");
-            answer.setDisable(false);
-            state.setText("");
-            deletingImage();
-            try {
-                creatImage();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            //NEXTING AND DICTIONARY IS USED UP
+            if (used.size() == dictionary1.size()) {
+                submit.setDisable(true);
+                word.setText("Congratulations!\nyou finished this category!");
+                word.setAlignment(Pos.CENTER);
+                word.setTextAlignment(TextAlignment.CENTER);
+                word.setFont(Font.font("", FontWeight.BOLD, 25));
+                answer.setDisable(true);
+            } else if (Progress.getProgress() == 1) {
+                //DICTIONARY STILL AND PROGRESS BAR USED UP 5LEVEL OVER°
+                //state is the label
+                submit.setText("Check");
+                state.setStyle("fx-text-fill:#000000;");
+                state.setText("You Finished this Level !");
+                currentLevel++;
+                answer.setDisable(false);
+                level.setText("level: " + currentLevel + "/" + size);
+                next = false;
+                Progress.setProgress(0);
+                deletingImage();
+                try {
+                    creatImage();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                next = false;
+                submit.setText("Check");
+                answer.setDisable(false);
+                state.setText("");
+                deletingImage();
+                try {
+                    creatImage();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
+
         answer.setText("");
         lblscore.setText(score + "Points");
     }
 
 
     void creatImage() throws FileNotFoundException {
-        currentImage = random.nextInt(dictionary1.size());
-        image = new Image(new FileInputStream(new File(String.valueOf(Paths.get("src/com/company/images/" + String.valueOf(currentImage) + ".png")))), 200, 150, false, false);
+        do {
+            currentImage = random.nextInt(dictionary1.size());
+        } while (used.contains(currentImage));
+        image = new Image(new FileInputStream(new File(String.valueOf(Paths.get("src/com/company/images/" + String.valueOf(currentImage) + ".png")))));//, 200, 150, false, false);
         //image= new Image(new FileInputStream(new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\company\\images\\1.png")));
         view.setImage(image);
     }
 
     void deletingImage() {
-        dictionary1.remove(currentImage);
+        used.add(currentImage);
     }
 
     void reading() {
@@ -184,12 +228,15 @@ public class MainImagesFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currentImage = 0;
         score = 0;
         next = false;
         Progress.setProgress(0);
+        currentLevel = 1;
         state.setText("");
         reading();
+        size = dictionary1.size() / 5;
+        level.setText("Level: " + currentLevel + "/" + size);
+
         try {
             creatImage();
         } catch (FileNotFoundException e) {

@@ -111,7 +111,7 @@ public class MainWordController implements Initializable {
 
     void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
-        File file = new File("src/com/company/dictionary/Alone.txt");
+        File file = new File("src/com/company/dictionary/Word.txt");
         Scanner sc = null;
 
         try {
@@ -208,18 +208,25 @@ public class MainWordController implements Initializable {
             }
         } else {
             if (first.dictionary.size() <= 1) {
+                submit.setDisable(true);
+                word.setText("Congratulations!\nyou finished this category!");
+                word.setAlignment(Pos.CENTER);
+                word.setTextAlignment(TextAlignment.CENTER);
+                word.setFont(Font.font("", FontWeight.BOLD,25));
+                answer.setDisable(true);
+            } else if(Progress.getProgress()==1) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
-                h = -1;
                 currentLevel++;
                 level.setText("level: "+currentLevel+"/"+size);
+                h = -1;
                 first.dictionary.remove(0);
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);
-            } else {
+            } else{
                 answer.setDisable(false);
                 creatingWord();
                 //submit is the button / check button gets activated
@@ -227,7 +234,6 @@ public class MainWordController implements Initializable {
                 submit.setText("Check");
                 state.setText("");
             }
-
         }
 
     }
