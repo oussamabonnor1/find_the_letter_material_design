@@ -52,7 +52,7 @@
                               <DropShadow height="15.0" radius="7.0" width="15.0" />
                            </effect>
                         </Pane>
-                        <Pane layoutX="24.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #FD8880;">
+                        <Pane layoutX="20.0" layoutY="252.0" prefHeight="188.0" prefWidth="150.0" style="-fx-background-color: #FD8880;">
                            <children>
                               <Pane layoutY="152.0" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #FF4C59;">
                                  <children>
