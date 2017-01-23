@@ -192,6 +192,7 @@ public class MainAloneFXMLController implements Initializable {
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                          music(3);
+
                     } else {
                         music(1);
                         //modifie the word, automaticaly
