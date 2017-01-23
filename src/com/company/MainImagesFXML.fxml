@@ -51,7 +51,7 @@
                </font>
             </Label>
          </children></Pane>
-      <JFXButton fx:id="submit" layoutX="248.0" layoutY="553.0" onAction="#icheck" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #009688; -fx-background-radius: 10%;" text="Check" textFill="WHITE">
+      <JFXButton fx:id="submit" layoutX="248.0" layoutY="542.0" onAction="#icheck" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #009688; -fx-background-radius: 10%;" text="Check" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -74,7 +74,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="view" fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
    </children>
    <effect>
       <DropShadow />
