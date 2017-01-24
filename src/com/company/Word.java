@@ -172,9 +172,6 @@ public class Word {
             //not one letter, word smaller or greater then the presented word
         } else if (c.length() < wordLetters.size() || c.length() > wordLetters.size()) {
             valeur = false;
-            if (type == 2) score -= 3;
-            else if (score > 0)score -= 1;
-
         } else {
             //word entered is same size as word presented
             for (int i = 0; i < wordLetters.size(); i++) {
@@ -189,8 +186,6 @@ public class Word {
             }
             //if yes , show new word
             if (valeur) {
-                score += 10;
-                help +=5;
                 for (int i = 0; i < wordLetters.size(); i++) {
                     organizedCharacters.set(i, c.charAt(i));
                 }

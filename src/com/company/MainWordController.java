@@ -188,6 +188,7 @@ public class MainWordController implements Initializable {
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
+                        score += 5;
                     } else {
                         music(1);
                         //modifie the word, automaticaly
@@ -204,6 +205,8 @@ public class MainWordController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
+                    score = first.getScore();
+                    if (score >= 1) score -= 1;
                 }
                 //answer is the textfield
                 answer.setText("");

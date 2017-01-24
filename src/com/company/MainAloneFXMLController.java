@@ -210,6 +210,7 @@ public class MainAloneFXMLController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
+                    if (score >= 1) score -= 1;
                 }
                 //answer is the textfield
                 answer.setText("");
