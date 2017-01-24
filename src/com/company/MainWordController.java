@@ -103,11 +103,13 @@ public class MainWordController implements Initializable {
     boolean next = false;
     int currentLevel;
     int size;
+    int helpPoints;
 
     ArrayList<String> dictionary1 = new ArrayList<>();
-    Word first = new Word(1, score, 0);
+    Word first = new Word(1, score, helpPoints);
     int h = -1;
     Random d = new Random();
+
 
     void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
@@ -173,7 +175,7 @@ public class MainWordController implements Initializable {
                 state.setText("Writte at least one letter !");
             } else {
                 //in the guessingCharachter methode, insert the text in the textfield in lowercase
-                if (first.guessingCharachter(answer.getText().toLowerCase())) {
+                if (first.guessingCharachter(answer.getText().toLowerCase(), 1)) {
 
                     if (first.organizedCharacters.equals(first.wordLetters)) {
                         //next button is activated
@@ -245,9 +247,10 @@ public class MainWordController implements Initializable {
         lblscore.setText(str + " Points");
     }
 
-       @FXML
+    @FXML
     void OnHelp(ActionEvent event) throws IOException {
- ((Node) (event.getSource())).getScene().getWindow().hide();
+        //((Node) (event.getSource())).getScene().getWindow().hide();
+        MainHelpFXMLController main = new MainHelpFXMLController(helpPoints);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -261,6 +264,7 @@ public class MainWordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         currentLevel = 1;
+        helpPoints = 0;
         state.setText("");
         Progress.setProgress(0);
         dictionary1.clear();

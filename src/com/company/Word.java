@@ -146,7 +146,6 @@ public class Word {
                         organizedCharacters.set(i, c.charAt(0));
                         if (type == 2) score += 5;
                         else score += 3;
-                        help++;
                     }
                 }
 

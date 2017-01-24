@@ -105,6 +105,7 @@ public class MainAloneFXMLController implements Initializable {
 
     int score = 0;
     boolean next = false;
+    int helpPoints;
 
     //String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
     ArrayList<String> dictionary1 = new ArrayList<>();
@@ -179,7 +180,7 @@ public class MainAloneFXMLController implements Initializable {
                 state.setText("Writte at least one letter !");
             } else {
                 //in the guessingCharachter methode, insert the text in the textfield in lowercase
-                if (first.guessingCharachter(answer.getText().toLowerCase())) {
+                if (first.guessingCharachter(answer.getText().toLowerCase(),2)) {
 
                     if (first.organizedCharacters.equals(first.wordLetters)) {
                         //next button is activated
@@ -256,7 +257,7 @@ public class MainAloneFXMLController implements Initializable {
     
      @FXML
     void OnHelp(ActionEvent event) throws IOException {
- ((Node) (event.getSource())).getScene().getWindow().hide();
+ //((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -269,6 +270,7 @@ public class MainAloneFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        helpPoints =0;
         currentLevel = 1;
         state.setText("");
         word.setFont(Font.font("", 51));

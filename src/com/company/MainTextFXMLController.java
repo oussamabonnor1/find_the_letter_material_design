@@ -179,7 +179,7 @@ public class MainTextFXMLController implements Initializable {
     
    @FXML
     void OnHelp(ActionEvent event) throws IOException {
- ((Node) (event.getSource())).getScene().getWindow().hide();
+ //((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

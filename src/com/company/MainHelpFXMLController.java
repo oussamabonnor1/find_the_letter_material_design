@@ -44,6 +44,8 @@ public class MainHelpFXMLController implements Initializable {
     @FXML
     private JFXButton showWord;
 
+    int help;
+
     
     
   @FXML
@@ -58,15 +60,13 @@ public class MainHelpFXMLController implements Initializable {
         stage.setIconified(true);
     }
 
-    
-    
-    
-    
-    
-    
+    public MainHelpFXMLController(int helpPoints) {
+      help = helpPoints;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        helpPoints.setText(String.valueOf(help));
     }    
     
 }
