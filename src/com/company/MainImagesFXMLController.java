@@ -194,7 +194,10 @@ public class MainImagesFXMLController implements Initializable {
         }
         lblscore.setText(score + "Points");
     }
+ @FXML
+    void OnHelp(ActionEvent event) {
 
+    }
 
     void creatImage() throws FileNotFoundException {
         do {
