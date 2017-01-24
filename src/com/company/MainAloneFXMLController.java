@@ -221,15 +221,14 @@ public class MainAloneFXMLController implements Initializable {
                 word.setTextAlignment(TextAlignment.CENTER);
                 word.setFont(Font.font("", FontWeight.BOLD, 25));
                 answer.setDisable(true);
-            } else if (Progress.getProgress() == 1) {
+            } else if (Progress.getProgress() == 0.2) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
                 currentLevel++;
                 level.setText("level: " + currentLevel + "/" + size);
-                h = -1;
-                first.dictionary.remove(0);
+                //first.dictionary.remove(0);
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);

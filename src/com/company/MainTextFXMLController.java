@@ -117,7 +117,6 @@ public class MainTextFXMLController implements Initializable {
     @FXML
     void icheck(ActionEvent event) {
 
-//CHECKING
         if (!next) {
             //EMPTY
             if (answer.getText().isEmpty()) {
@@ -146,8 +145,8 @@ public class MainTextFXMLController implements Initializable {
             }
 
             //NEXTING AND DICTIONARY IS USED UP
-        } else  {
-            if (used.size()==dictionary.size()-1){
+        } else {
+            if (used.size() == dictionary.size() - 1) {
                 submit.setDisable(true);
                 state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                 state.setText("you finished them all !");
@@ -157,6 +156,7 @@ public class MainTextFXMLController implements Initializable {
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
+                music(3);
                 currentLevel++;
                 answer.setDisable(false);
                 level.setText("level: " + currentLevel + "/" + size);
@@ -186,7 +186,7 @@ public class MainTextFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        word.setFont(Font.font("",30));
+        word.setFont(Font.font("", 30));
         score = 0;
         h = -1;
         next = false;
@@ -205,13 +205,14 @@ public class MainTextFXMLController implements Initializable {
     void creatingHint() {
         do {
             h = d.nextInt(dictionary.size());
-        }while (used.contains(h));
+        } while (used.contains(h));
 
         answer.setText("");
         word.setText(hints.get(h));
-        System.out.println(hints.get(h)+"\n"+dictionary.get(h));
+        System.out.println(hints.get(h) + "\n" + dictionary.get(h));
     }
-    void deletingHint(){
+
+    void deletingHint() {
         used.add(h);
     }
 
@@ -227,8 +228,8 @@ public class MainTextFXMLController implements Initializable {
             e.printStackTrace();
         }
         while (sc.hasNextLine()) {
-                s = sc.nextLine();
-                hints.add(s);
+            s = sc.nextLine();
+            hints.add(s);
         }
         //words addition
         File word = new File("src/com/company/Text/words.txt");
