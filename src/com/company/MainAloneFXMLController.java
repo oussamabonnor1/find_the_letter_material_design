@@ -261,6 +261,7 @@ public class MainAloneFXMLController implements Initializable {
         state.setText("");
         word.setFont(Font.font("", 51));
         Progress.setProgress(0);
+        dictionary1.clear();
         reading();
         size = (dictionary1.size() / 10);
         level.setText("level: " + currentLevel + "/" + size);

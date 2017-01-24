@@ -149,6 +149,7 @@ public class MainImagesFXMLController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
+                    answer.setText("");
                 }
             }
         } else {
@@ -165,6 +166,7 @@ public class MainImagesFXMLController implements Initializable {
                 state.setStyle("fx-text-fill:#000000;");
                 state.setText("You Finished this Level !");
                 currentLevel++;
+                music(3);
                 answer.setDisable(false);
                 level.setText("level: " + currentLevel + "/" + size);
                 next = false;
@@ -175,11 +177,13 @@ public class MainImagesFXMLController implements Initializable {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
+                answer.setText("");
             } else {
                 next = false;
                 submit.setText("Check");
                 answer.setDisable(false);
                 state.setText("");
+                answer.setText("");
                 deletingImage();
                 try {
                     creatImage();
@@ -188,8 +192,6 @@ public class MainImagesFXMLController implements Initializable {
                 }
             }
         }
-
-        answer.setText("");
         lblscore.setText(score + "Points");
     }
 

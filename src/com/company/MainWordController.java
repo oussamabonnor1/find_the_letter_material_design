@@ -251,6 +251,7 @@ public class MainWordController implements Initializable {
         currentLevel = 1;
         state.setText("");
         Progress.setProgress(0);
+        dictionary1.clear();
         reading();
         size = (dictionary1.size()/10);
         level.setText("level: "+currentLevel+"/"+size);

@@ -36,6 +36,10 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import sun.audio.AudioData;
+import sun.audio.AudioDataStream;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /**
  * FXML Controller class
@@ -44,7 +48,7 @@ import javafx.stage.StageStyle;
  */
 public class MainTextFXMLController implements Initializable {
 
-   @FXML
+    @FXML
     private Label lblscore;
 
     @FXML
@@ -74,6 +78,15 @@ public class MainTextFXMLController implements Initializable {
     @FXML
     private Label level;
 
+    boolean next;
+    ArrayList<String> hints = new ArrayList<>();
+    ArrayList<String> dictionary = new ArrayList<>();
+    int score;
+    int currentLevel;
+    int size;
+    int h;
+    Random d = new Random();
+
     @FXML
     void OnBack(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -98,16 +111,149 @@ public class MainTextFXMLController implements Initializable {
     void closewindow(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-    
-    
-     @FXML
+
+
+    @FXML
     void icheck(ActionEvent event) {
 
+//CHECKING
+        if (!next) {
+            //EMPTY
+            if (answer.getText().isEmpty()) {
+                //state is a label
+                state.setStyle("-fx-text-fill: #000000;-fx-alignment: center;");
+                state.setText("Writte at least one letter !");
+            } else {
+                //NOT EMPTY AND CORRECT
+                if (answer.getText().toLowerCase().equals(dictionary.get(h))) {
+                    next = true;
+                    submit.setText("Next");
+                    state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                    state.setText("You guessed this word !");
+                    answer.setDisable(true);
+                    answer.setDisable(true);
+                    Progress.setProgress(Progress.getProgress() + 0.2);
+                    score += 15;
+                    music(1);
+                } else {
+                    //NOT CORRECT
+                    score -= 3;
+                    state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
+                    state.setText("wrong, guess again !");
+                    music(2);
+                }
+            }
 
+            //NEXTING AND DICTIONARY IS USED UP
+        } else  {
+            if (hints.size()==0){
+                submit.setDisable(true);
+                state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
+                state.setText("you finished them all !");
+                answer.setDisable(true);
+            } else if (Progress.getProgress() == 1) {
+                //DICTIONARY STILL AND PROGRESS BAR USED UP (LEVEL OVER)
+                submit.setText("Check");
+                state.setStyle("fx-text-fill:#000000;");
+                state.setText("You Finished this Level !");
+                currentLevel++;
+                answer.setDisable(false);
+                level.setText("level: " + currentLevel + "/" + size);
+                next = false;
+                Progress.setProgress(0);
+                deletingHint();
+                creatingHint();
+            } else {
+                next = false;
+                submit.setText("Check");
+                answer.setDisable(false);
+                state.setText("");
+                deletingHint();
+                creatingHint();
+            }
+            answer.setText("");
+            lblscore.setText(score + "Points");
+        }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+        score = 0;
+        h = -1;
+        next = false;
+        Progress.setProgress(0);
+        currentLevel = 1;
+        state.setText("");
+        hints.clear();
+        dictionary.clear();
+        reading();
+        creatingHint();
+        size = dictionary.size() / 5;
+        level.setText("Level: " + currentLevel + "/" + size);
+    }
+
+    void creatingHint() {
+        h = d.nextInt(hints.size());
+        answer.setText("");
+        word.setText(hints.get(h));
+        System.out.println(hints.get(h)+"\n"+dictionary.get(h));
+    }
+    void deletingHint(){
+        hints.remove(h);
+    }
+
+
+    void reading() {
+        //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
+        File hint = new File("src/com/company/Text/hints.txt");
+        Scanner sc = null;
+        String s;
+        try {
+            sc = new Scanner(hint);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (sc.hasNextLine()) {
+                s = sc.nextLine();
+                hints.add(s);
+        }
+        //words addition
+        File word = new File("src/com/company/Text/words.txt");
+        sc = null;
+        try {
+            sc = new Scanner(word);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (sc.hasNext()) {
+            s = sc.next();
+            dictionary.add(s);
+        }
+    }
+
+    public void music(int i) {
+        AudioPlayer player = AudioPlayer.player;
+        AudioData data;
+        AudioDataStream output = null;
+        AudioStream background = null;
+
+        try {
+            if (i == 1) {
+                background = new AudioStream(new FileInputStream(new File("src/com/company/sound/Correct-answer.wav")));
+            }
+            if (i == 2) {
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Wrong-answer-sound-effect.wav"));
+            }
+            if (i == 3) {
+                background = new AudioStream(new FileInputStream("src/com/company/sound/Next-Level-Sound.wav"));
+            }
+
+            data = background.getData();
+            output = new AudioDataStream(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        player.start(output);
+    }
 }
