@@ -81,6 +81,7 @@ public class MainTextFXMLController implements Initializable {
     boolean next;
     ArrayList<String> hints = new ArrayList<>();
     ArrayList<String> dictionary = new ArrayList<>();
+    ArrayList<Integer> used = new ArrayList<>();
     int score;
     int currentLevel;
     int size;
@@ -146,7 +147,7 @@ public class MainTextFXMLController implements Initializable {
 
             //NEXTING AND DICTIONARY IS USED UP
         } else  {
-            if (hints.size()==0){
+            if (used.size()==dictionary.size()-1){
                 submit.setDisable(true);
                 state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                 state.setText("you finished them all !");
@@ -179,6 +180,7 @@ public class MainTextFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        word.setFont(Font.font("",30));
         score = 0;
         h = -1;
         next = false;
@@ -187,6 +189,7 @@ public class MainTextFXMLController implements Initializable {
         state.setText("");
         hints.clear();
         dictionary.clear();
+        used.clear();
         reading();
         creatingHint();
         size = dictionary.size() / 5;
@@ -194,13 +197,16 @@ public class MainTextFXMLController implements Initializable {
     }
 
     void creatingHint() {
-        h = d.nextInt(hints.size());
+        do {
+            h = d.nextInt(dictionary.size());
+        }while (used.contains(h));
+
         answer.setText("");
         word.setText(hints.get(h));
         System.out.println(hints.get(h)+"\n"+dictionary.get(h));
     }
     void deletingHint(){
-        hints.remove(h);
+        used.add(h);
     }
 
 
