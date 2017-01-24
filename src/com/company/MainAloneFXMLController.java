@@ -254,6 +254,11 @@ public class MainAloneFXMLController implements Initializable {
         lblscore.setText(str + " Points");
 
     }
+    
+     @FXML
+    void OnHelp(ActionEvent event) {
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
