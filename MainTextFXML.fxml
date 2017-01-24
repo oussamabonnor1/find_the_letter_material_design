@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="328.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="com.company.MainTextFXMLController">
+     <children>
+      <Pane prefHeight="269.0" prefWidth="381.0" style="-fx-background-color: #9C27B0;">
+         <children>
+            <Label layoutX="55.0" layoutY="173.0" prefHeight="38.0" prefWidth="290.0" text="Let's see if you can solve this one" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblscore" alignment="CENTER" layoutX="281.0" layoutY="29.0" prefHeight="30.0" prefWidth="100.0" text="0 Pts" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="back" layoutY="22.0" onAction="#OnBack" ripplerFill="WHITE" text="&lt; Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="170.0" layoutY="29.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="Avatar" />
+            <ProgressBar fx:id="Progress" layoutX="65.0" layoutY="117.0" prefHeight="18.0" prefWidth="270.0" progress="0.0" />
+            <Pane prefHeight="20.0" prefWidth="381.0" style="-fx-background-color: #9C27B0;">
+               <children>
+                  <JFXButton fx:id="closButton" layoutX="352.0" layoutY="-2.0" onAction="#closewindow" prefHeight="11.0" prefWidth="23.0" text="x" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="minButton" layoutX="326.0" layoutY="-5.0" onAction="#OnMinimiz" prefHeight="21.0" prefWidth="26.0" text="-" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </Pane>
+            <Label fx:id="level" alignment="CENTER" layoutX="139.0" layoutY="231.0" prefHeight="25.0" prefWidth="92.0" text="12/40" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Label fx:id="word" alignment="CENTER" layoutY="309.0" prefHeight="161.0" prefWidth="381.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="submit" layoutX="248.0" layoutY="542.0" onAction="#icheck" prefHeight="38.0" prefWidth="119.0" style="-fx-background-color: #9C27B0; -fx-background-radius: 10%;" text="Check" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="state" alignment="CENTER" layoutX="9.0" layoutY="550.0" prefHeight="44.0" prefWidth="195.0" text="Label">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="answer" alignment="CENTER" focusColor="#9c27b0" layoutX="121.0" layoutY="467.0" maxWidth="224.0" minWidth="139.0" prefHeight="38.0" prefWidth="139.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXTextField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="239.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="?" textAlignment="CENTER" textFill="#9c27b0">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <JFXButton fx:id="btnHelp" layoutX="297.0" layoutY="239.0" onAction="#OnHelp" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 90%;" text=" ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>
