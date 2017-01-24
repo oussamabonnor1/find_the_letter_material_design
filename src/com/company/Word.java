@@ -137,6 +137,25 @@ public class Word {
 
         //one letter
         if (c.length() == 1) {
+            //if the letter already mentioned ?
+            if(wordLetters.contains(c.charAt(0)) && organizedCharacters.contains(c.charAt(0))){
+                int count=0;
+                //is the letter present more than once ?
+                for (int i = 0; i < wordLetters.size(); i++) {
+                    if(wordLetters.get(i).equals(c.charAt(0))) count++;
+                }
+                if (count>1){
+                    //if it s present twice or more, is it present in different place in organised and word
+                    for (int i = 0; i < organizedCharacters.size(); i++) {
+                        if (wordLetters.get(i).equals(c.charAt(0)) && !organizedCharacters.get(i).equals(c.charAt(0))){
+                            organizedCharacters.set(i, c.charAt(0));
+                            if (type == 2) score += 5;
+                            else score += 3;
+                            valeur = true;
+                        }
+                    }
+                }
+            }
             //letter is correct and not already entered
             if (wordLetters.contains(c.charAt(0)) && !organizedCharacters.contains(c.charAt(0))) {
                 valeur = true;
@@ -170,7 +189,7 @@ public class Word {
             }
             //if yes , show new word
             if (valeur) {
-                score += 5;
+                score += 10;
                 help +=5;
                 for (int i = 0; i < wordLetters.size(); i++) {
                     organizedCharacters.set(i, c.charAt(i));

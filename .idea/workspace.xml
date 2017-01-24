@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="Fixed bugs in word and alone">
+    <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" afterPath="$PROJECT_DIR$/out/production/learning/com/company/Word.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainWordController.java" afterPath="$PROJECT_DIR$/src/com/company/MainWordController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Word.java" afterPath="$PROJECT_DIR$/src/com/company/Word.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/images/words.txt" afterPath="$PROJECT_DIR$/src/com/company/images/words.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MainWordController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainWordController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainWordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
+            <state relative-caret-position="102">
+              <caret line="254" column="50" lean-forward="false" selection-start-line="254" selection-start-column="50" selection-end-line="254" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#reading#0;class#MainWordController#0" expanded="false" />
@@ -44,9 +42,11 @@
       <file leaf-file-name="MainAloneFXMLController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="259" column="62" lean-forward="true" selection-start-line="259" selection-start-column="62" selection-end-line="259" selection-end-column="62" />
+            <state relative-caret-position="3542">
+              <caret line="259" column="62" lean-forward="false" selection-start-line="259" selection-start-column="62" selection-end-line="259" selection-end-column="62" />
               <folding>
+                <element signature="e#0#9823#0" expanded="false" />
+                <element signature="imports" expanded="false" />
                 <element signature="method#OnBack#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#reading#0;class#MainAloneFXMLController#0" expanded="false" />
                 <element signature="method#creatingWord#0;class#MainAloneFXMLController#0" expanded="false" />
@@ -61,23 +61,23 @@
       <file leaf-file-name="MainHelpFXMLController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+            <state relative-caret-position="418">
+              <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
               <folding>
-                <element signature="e#1422#1423#0" expanded="true" />
-                <element signature="e#1453#1454#0" expanded="true" />
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1421#1422#0" expanded="true" />
+                <element signature="e#1452#1453#0" expanded="true" />
+                <element signature="e#1524#1525#0" expanded="true" />
+                <element signature="e#1580#1581#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Word.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Word.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-485">
-              <caret line="147" column="40" lean-forward="false" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
+            <state relative-caret-position="396">
+              <caret line="153" column="42" lean-forward="false" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
               <folding>
                 <element signature="method#decompose#0;class#Word#0" expanded="false" />
                 <element signature="method#generateWord#0;class#Word#0" expanded="false" />
@@ -90,9 +90,13 @@
       <file leaf-file-name="MainTextFXMLController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainTextFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="3146">
               <caret line="181" column="3" lean-forward="false" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
               <folding>
+                <element signature="e#0#8412#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#6700#6701#0" expanded="false" />
+                <element signature="e#6727#6728#0" expanded="false" />
                 <element signature="method#reading#0;class#MainTextFXMLController#0" expanded="false" />
                 <element signature="method#music#0;class#MainTextFXMLController#0" expanded="false" />
               </folding>
@@ -103,10 +107,14 @@
       <file leaf-file-name="MainImagesFXMLController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
+            <state relative-caret-position="3432">
               <caret line="198" column="3" lean-forward="false" selection-start-line="198" selection-start-column="3" selection-end-line="198" selection-end-column="3" />
               <folding>
+                <element signature="e#0#8933#0" expanded="false" />
+                <element signature="imports" expanded="false" />
                 <element signature="method#creatImage#0;class#MainImagesFXMLController#0" expanded="false" />
+                <element signature="e#7060#7061#0" expanded="false" />
+                <element signature="e#7098#7099#0" expanded="false" />
                 <element signature="method#reading#0;class#MainImagesFXMLController#0" expanded="false" />
                 <element signature="method#initialize#0;class#MainImagesFXMLController#0" expanded="false" />
                 <element signature="method#music#0;class#MainImagesFXMLController#0" expanded="false" />
@@ -155,23 +163,23 @@
         <option value="$PROJECT_DIR$/src/com/company/MainController.java" />
         <option value="$PROJECT_DIR$/src/com/company/Image.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainImagesFXML.fxml" />
-        <option value="$PROJECT_DIR$/src/com/company/images/words.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Text/hints.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Text/words.txt" />
-        <option value="$PROJECT_DIR$/src/com/company/Word.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainWordController.java" />
+        <option value="$PROJECT_DIR$/src/com/company/images/words.txt" />
+        <option value="$PROJECT_DIR$/src/com/company/Word.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1918" />
-    <option name="height" value="1030" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -190,7 +198,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -239,12 +246,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Text" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -742,11 +750,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485250371393</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="some bugs fixed, help points introduced">
+      <created>1485292211485</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1485292211485</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1918" height="1030" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -758,13 +773,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968238" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33706608" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32968238" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27684212" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27395833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -783,7 +798,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="words elimination fixed with better handling" />
     <MESSAGE value="latest version Random modification" />
     <MESSAGE value="extreamly important exception handeled" />
     <MESSAGE value="Graphic modifications, next level option added" />
@@ -808,7 +822,8 @@
     <MESSAGE value="Text category added" />
     <MESSAGE value="fully working 4 categories" />
     <MESSAGE value="Fixed bugs in word and alone" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bugs in word and alone" />
+    <MESSAGE value="some bugs fixed, help points introduced" />
+    <option name="LAST_COMMIT_MESSAGE" value="some bugs fixed, help points introduced" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1005,25 +1020,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2475">
           <caret line="12" column="209" lean-forward="false" selection-start-line="12" selection-start-column="209" selection-end-line="12" selection-end-column="209" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXML.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXML.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1507">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FindTheLetter.java">
@@ -1059,21 +1074,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="76" column="77" lean-forward="false" selection-start-line="76" selection-start-column="77" selection-end-line="76" selection-end-column="77" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/images/words.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="98" lean-forward="false" selection-start-line="0" selection-start-column="98" selection-end-line="0" selection-end-column="98" />
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
@@ -1084,49 +1092,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainWordFXML.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1637">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Text/hints.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
-        </state>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Text/words.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="42" lean-forward="false" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-485">
-          <caret line="147" column="40" lean-forward="false" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
-          <folding>
-            <element signature="method#decompose#0;class#Word#0" expanded="false" />
-            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
-            <element signature="method#help1#0;class#Word#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainTextFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="3146">
           <caret line="181" column="3" lean-forward="false" selection-start-line="181" selection-start-column="3" selection-end-line="181" selection-end-column="3" />
           <folding>
+            <element signature="e#0#8412#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#6700#6701#0" expanded="false" />
+            <element signature="e#6727#6728#0" expanded="false" />
             <element signature="method#reading#0;class#MainTextFXMLController#0" expanded="false" />
             <element signature="method#music#0;class#MainTextFXMLController#0" expanded="false" />
           </folding>
@@ -1135,10 +1126,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
+        <state relative-caret-position="3432">
           <caret line="198" column="3" lean-forward="false" selection-start-line="198" selection-start-column="3" selection-end-line="198" selection-end-column="3" />
           <folding>
+            <element signature="e#0#8933#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#creatImage#0;class#MainImagesFXMLController#0" expanded="false" />
+            <element signature="e#7060#7061#0" expanded="false" />
+            <element signature="e#7098#7099#0" expanded="false" />
             <element signature="method#reading#0;class#MainImagesFXMLController#0" expanded="false" />
             <element signature="method#initialize#0;class#MainImagesFXMLController#0" expanded="false" />
             <element signature="method#music#0;class#MainImagesFXMLController#0" expanded="false" />
@@ -1164,9 +1159,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="259" column="62" lean-forward="true" selection-start-line="259" selection-start-column="62" selection-end-line="259" selection-end-column="62" />
+        <state relative-caret-position="3542">
+          <caret line="259" column="62" lean-forward="false" selection-start-line="259" selection-start-column="62" selection-end-line="259" selection-end-column="62" />
           <folding>
+            <element signature="e#0#9823#0" expanded="false" />
+            <element signature="imports" expanded="false" />
             <element signature="method#OnBack#0;class#MainAloneFXMLController#0" expanded="false" />
             <element signature="method#reading#0;class#MainAloneFXMLController#0" expanded="false" />
             <element signature="method#creatingWord#0;class#MainAloneFXMLController#0" expanded="false" />
@@ -1179,25 +1176,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="68" column="49" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+        <state relative-caret-position="418">
+          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
           <folding>
-            <element signature="e#1422#1423#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1452#1453#0" expanded="true" />
+            <element signature="e#1524#1525#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/images/words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="46" lean-forward="false" selection-start-line="0" selection-start-column="46" selection-end-line="0" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Text/hints.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainWordController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="263" column="13" lean-forward="true" selection-start-line="263" selection-start-column="13" selection-end-line="263" selection-end-column="13" />
+        <state relative-caret-position="102">
+          <caret line="254" column="50" lean-forward="false" selection-start-line="254" selection-start-column="50" selection-end-line="254" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#reading#0;class#MainWordController#0" expanded="false" />
             <element signature="method#music#0;class#MainWordController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Word.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="153" column="42" lean-forward="false" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
+          <folding>
+            <element signature="method#decompose#0;class#Word#0" expanded="false" />
+            <element signature="method#generateWord#0;class#Word#0" expanded="false" />
+            <element signature="method#help1#0;class#Word#0" expanded="false" />
           </folding>
         </state>
       </provider>

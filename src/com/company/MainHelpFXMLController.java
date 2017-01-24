@@ -36,7 +36,7 @@ public class MainHelpFXMLController implements Initializable {
     private JFXButton minButton;
 
     @FXML
-    private Label helpPoints;
+    public Label helpPoints;
 
     @FXML
     private JFXButton showLetter;
