@@ -70,14 +70,19 @@
             <Font size="13.0" />
          </font>
       </JFXTextField>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="239.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="+" textAlignment="CENTER" textFill="#fe4c58">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="297.0" layoutY="239.0" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 50%; -fx-background-color: #fff;" text="?" textAlignment="CENTER" textFill="#fe4c58">
          <font>
-            <Font size="33.0" />
+            <Font name="System Bold" size="33.0" />
          </font>
          <effect>
             <DropShadow />
          </effect>
       </Label>
+      <JFXButton fx:id="btnHelp" layoutX="297.0" layoutY="239.0" onAction="#OnHelp" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 90%;" text=" ">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
    </children>
    <effect>
       <DropShadow />
