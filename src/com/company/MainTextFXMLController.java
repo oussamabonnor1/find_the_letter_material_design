@@ -176,10 +176,10 @@ public class MainTextFXMLController implements Initializable {
             lblscore.setText(score + "Points");
         }
     }
-    
-   @FXML
+
+    @FXML
     void OnHelp(ActionEvent event) throws IOException {
- //((Node) (event.getSource())).getScene().getWindow().hide();
+        //((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -189,8 +189,8 @@ public class MainTextFXMLController implements Initializable {
         stage.setScene(new Scene(root1));
         stage.show();
     }
-    
-    
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -206,7 +206,7 @@ public class MainTextFXMLController implements Initializable {
         used.clear();
         reading();
         creatingHint();
-        size = dictionary.size() / 5;
+        size = (dictionary.size() / 3);
         level.setText("Level: " + currentLevel + "/" + size);
     }
 

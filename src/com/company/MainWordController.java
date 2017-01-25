@@ -188,16 +188,16 @@ public class MainWordController implements Initializable {
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
-                        score += 5;
+                        score = first.getScore();
                     } else {
                         music(1);
                         //modifie the word, automaticaly
                         updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("Good Job");
+                        score = first.getScore();
                     }
                     //state is the label
-                    score = first.getScore();
 
                 } else {
                     score = first.getScore();
@@ -206,7 +206,6 @@ public class MainWordController implements Initializable {
                     state.setText("wrong, guess again !");
                     music(2);
                     score = first.getScore();
-                    if (score >= 1) score -= 1;
                 }
                 //answer is the textfield
                 answer.setText("");
@@ -240,7 +239,8 @@ public class MainWordController implements Initializable {
                 state.setText("");
             }
         }
-
+        lblscore.setText("Points: "+score);
+        System.out.println("-------------"+score);
     }
 
     @FXML

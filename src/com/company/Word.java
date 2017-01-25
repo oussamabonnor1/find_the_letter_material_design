@@ -138,16 +138,16 @@ public class Word {
         //one letter
         if (c.length() == 1) {
             //if the letter already mentioned ?
-            if(wordLetters.contains(c.charAt(0)) && organizedCharacters.contains(c.charAt(0))){
-                int count=0;
+            if (wordLetters.contains(c.charAt(0)) && organizedCharacters.contains(c.charAt(0))) {
+                int count = 0;
                 //is the letter present more than once ?
                 for (int i = 0; i < wordLetters.size(); i++) {
-                    if(wordLetters.get(i).equals(c.charAt(0))) count++;
+                    if (wordLetters.get(i).equals(c.charAt(0))) count++;
                 }
-                if (count>1){
+                if (count > 1) {
                     //if it s present twice or more, is it present in different place in organised and word
                     for (int i = 0; i < organizedCharacters.size(); i++) {
-                        if (wordLetters.get(i).equals(c.charAt(0)) && !organizedCharacters.get(i).equals(c.charAt(0))){
+                        if (wordLetters.get(i).equals(c.charAt(0)) && !organizedCharacters.get(i).equals(c.charAt(0))) {
                             organizedCharacters.set(i, c.charAt(0));
                             if (type == 2) score += 5;
                             else score += 3;
@@ -172,18 +172,24 @@ public class Word {
             //not one letter, word smaller or greater then the presented word
         } else if (c.length() < wordLetters.size() || c.length() > wordLetters.size()) {
             valeur = false;
+            if (type == 2 && score > 0) score -= 3;
+            else if (score > 0) score -= 1;
         } else {
             //word entered is same size as word presented
+            int delta = 0;
             for (int i = 0; i < wordLetters.size(); i++) {
                 //is it the same letter -> word ?
                 if (wordLetters.get(i).equals(c.charAt(i))) {
                     valeur = true;
+                    if (!organizedCharacters.get(i).equals(c.charAt(i))) delta++;
                 } else {
-                    if (type == 2) score -= 3;
-                    else if (score > 0)score -= 1;
+                    if (type == 2 && score > 0) score -= 3;
+                    else if (score > 0) score -= 1;
                     return false;
                 }
             }
+            if (type == 2) score += delta * 5;
+            else score += delta * 3;
             //if yes , show new word
             if (valeur) {
                 for (int i = 0; i < wordLetters.size(); i++) {

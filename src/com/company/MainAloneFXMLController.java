@@ -193,6 +193,7 @@ public class MainAloneFXMLController implements Initializable {
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
+                        score = first.getScore();
 
                     } else {
                         music(1);
@@ -200,19 +201,16 @@ public class MainAloneFXMLController implements Initializable {
                         updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("Good Job");
+                        score = first.getScore();
                     }
-                    //state is the label
-                    score = first.getScore();
 
                 } else {
                     score = first.getScore();
-                    //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
-                    if (score >= 1) score -= 1;
+                    score = first.getScore();
                 }
-                //answer is the textfield
                 answer.setText("");
             }
         } else {
@@ -244,7 +242,7 @@ public class MainAloneFXMLController implements Initializable {
             }
 
         }
-
+        lblscore.setText("Points: " + score);
     }
 
     @FXML
