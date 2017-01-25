@@ -239,8 +239,8 @@ public class MainWordController implements Initializable {
                 state.setText("");
             }
         }
-        lblscore.setText("Points: "+score);
-        System.out.println("-------------"+score);
+        lblscore.setText("Points: " + score);
+        System.out.println("-------------" + score);
     }
 
     @FXML
@@ -252,8 +252,6 @@ public class MainWordController implements Initializable {
 
     @FXML
     void OnHelp(ActionEvent event) throws IOException {
-        //((Node) (event.getSource())).getScene().getWindow().hide();
-        MainHelpFXMLController main = new MainHelpFXMLController(helpPoints);
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();

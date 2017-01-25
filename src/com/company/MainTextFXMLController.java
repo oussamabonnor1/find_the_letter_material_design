@@ -135,12 +135,14 @@ public class MainTextFXMLController implements Initializable {
                     Progress.setProgress(Progress.getProgress() + 0.2);
                     score += 15;
                     music(1);
+                    answer.setText("");
                 } else {
                     //NOT CORRECT
                     score -= 3;
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
+                    answer.setText("");
                 }
             }
 
@@ -164,6 +166,7 @@ public class MainTextFXMLController implements Initializable {
                 Progress.setProgress(0);
                 deletingHint();
                 creatingHint();
+                answer.setText("");
             } else {
                 next = false;
                 submit.setText("Check");

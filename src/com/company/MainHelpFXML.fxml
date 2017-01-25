@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,10 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="379.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="com.company.MainHelpFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainHelpFXMLController">
    <children>
-      <Pane layoutX="-2.0" prefHeight="127.0" prefWidth="381.0" style="-fx-background-color: #FFC107;">
+      <Pane prefHeight="127.0" prefWidth="379.0" style="-fx-background-color: #FFC107;">
          <children>
             <JFXButton fx:id="closButton" layoutX="352.0" layoutY="-2.0" onAction="#closewindow" prefHeight="11.0" prefWidth="23.0" text="x" textFill="WHITE">
                <font>
