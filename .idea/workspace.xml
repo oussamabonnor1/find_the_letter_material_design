@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="affa72a7-02d9-4b61-8e98-14e5bc01863c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml" afterPath="$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainWordController.java" afterPath="$PROJECT_DIR$/src/com/company/MainWordController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" afterPath="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,15 +36,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainHelpFXML.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainHelpFXML.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="-22">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1132">
+              <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+          <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
           </provider>
         </entry>
@@ -95,11 +93,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainHelpFXMLController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainHelpFXMLController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+            <state relative-caret-position="-134">
+              <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -179,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/com/company/Image.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainImagesFXML.fxml" />
         <option value="$PROJECT_DIR$/src/com/company/MainImagesFXMLController.java" />
-        <option value="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/images/words.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Text/words.txt" />
         <option value="$PROJECT_DIR$/src/com/company/Text/hints.txt" />
@@ -188,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/com/company/MainTextFXMLController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainWordController.java" />
         <option value="$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml" />
+        <option value="$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java" />
       </list>
     </option>
   </component>
@@ -794,7 +792,14 @@
       <option name="project" value="LOCAL" />
       <updated>1485378411216</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="help pane adjusted">
+      <created>1485379587054</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1485379587054</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -835,7 +840,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed everything again, new version 2.0" />
     <MESSAGE value="new patterns" />
     <MESSAGE value="fixed potentiel user hacking" />
     <MESSAGE value="textfield fixing and label improved" />
@@ -860,7 +864,8 @@
     <MESSAGE value="double letters bug fixed" />
     <MESSAGE value="scoring system improved" />
     <MESSAGE value="scoring system Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="scoring system Fixed" />
+    <MESSAGE value="help pane adjusted" />
+    <option name="LAST_COMMIT_MESSAGE" value="help pane adjusted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1175,14 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainAloneFXMLController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
@@ -1233,6 +1230,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1132">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/MainWordController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1245,15 +1253,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXML.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/src/com/company/MainHelpFXMLController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
           <folding />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
   </component>

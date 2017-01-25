@@ -60,13 +60,9 @@ public class MainHelpFXMLController implements Initializable {
         stage.setIconified(true);
     }
 
-    public MainHelpFXMLController(int helpPoints) {
-      help = helpPoints;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        helpPoints.setText(String.valueOf(help));
+
     }    
     
 }
