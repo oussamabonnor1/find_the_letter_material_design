@@ -14,6 +14,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -109,11 +112,14 @@ public class MainAloneFXMLController implements Initializable {
 
     //String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
     ArrayList<String> dictionary1 = new ArrayList<>();
-    Word first = new Word(2, score, 0);
+    Word first = new Word(2, score);
     int h = -1;
     Random d = new Random();
     int currentLevel;
     int size;
+    public Connection connection;
+    Statement stmt;
+    String sql;
 
     void reading() {
         //File file = new File(String.valueOf(Paths.get("com/company/File.txt")));
@@ -269,7 +275,22 @@ public class MainAloneFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        helpPoints =0;
+        connection = CNX.dbConnection();
+        helpPoints = 0;
+        score = 0;
+        //if first time playing hen fill table
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+
+            if (!rs.next()) {
+                sql = "INSERT INTO Manager (Score,Help) " +
+                        "VALUES" + "('" + score + "','" + helpPoints + "');";
+                stmt.executeUpdate(sql);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         currentLevel = 1;
         state.setText("");
         word.setFont(Font.font("", 51));

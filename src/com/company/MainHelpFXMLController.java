@@ -6,9 +6,14 @@
 package com.company;
 
 import com.jfoenix.controls.JFXButton;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +34,7 @@ import javafx.stage.StageStyle;
  */
 public class MainHelpFXMLController implements Initializable {
 
-     @FXML
+    @FXML
     private JFXButton closButton;
 
     @FXML
@@ -44,11 +49,12 @@ public class MainHelpFXMLController implements Initializable {
     @FXML
     private JFXButton showWord;
 
-    int help;
+    public Connection connection;
+    Statement stmt;
+    String sql;
 
-    
-    
-  @FXML
+
+    @FXML
     void closewindow(ActionEvent event) throws IOException {
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
@@ -62,7 +68,21 @@ public class MainHelpFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        connection = CNX.dbConnection();
+        //if first time playing hen fill table
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
 
-    }    
-    
+            if (!rs.next()) {
+                helpPoints.setText("00");
+                System.out.println("CREATION");
+            }else {
+                helpPoints.setText(String.valueOf(rs.getInt("Help")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -15,8 +15,6 @@ public class Word {
     private int score;
     //dictionary: contains the words generated in this game
     ArrayList<String> dictionary = new ArrayList<>();
-    //help: a counter to determine if the player needs any help, further explanation in the method "help"
-    private int help;
 
     //variables needed in methods only:
     String testWord;
@@ -41,19 +39,10 @@ public class Word {
         this.score = score;
     }
 
-    public int getHelp() {
-        return help;
-    }
-
-    public void setHelp(int help) {
-        this.help = help;
-    }
-
     //constructor: this will be used to determmine each level
-    public Word(int index, int score, int help) {
+    public Word(int index, int score) {
         this.index = index;
         this.score = score;
-        this.help = help;
     }
 
 
@@ -202,7 +191,7 @@ public class Word {
     }
 
     //help method 1:
-    public boolean help1() {
+   /* public boolean help1() {
         boolean helpval = true;
         //each time the user gets 3 errors, this will appear
         if (help >= 3) {
@@ -238,6 +227,6 @@ public class Word {
             }
         }
         return helpval;
-    }
+    }*/
 
 }

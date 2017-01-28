@@ -13,6 +13,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -42,6 +46,7 @@ import sun.audio.AudioStream;
 
 
 public class MainWordController implements Initializable {
+
     @FXML
     private JFXButton submit;
 
@@ -106,9 +111,12 @@ public class MainWordController implements Initializable {
     int helpPoints;
 
     ArrayList<String> dictionary1 = new ArrayList<>();
-    Word first = new Word(1, score, helpPoints);
+    Word first = new Word(1, score);
     int h = -1;
     Random d = new Random();
+    public Connection connection;
+    Statement stmt;
+    String sql;
 
 
     void reading() {
@@ -127,6 +135,7 @@ public class MainWordController implements Initializable {
             dictionary1.add(s);
         }
     }
+
 
     public void creatingWord() {
 
@@ -189,6 +198,19 @@ public class MainWordController implements Initializable {
                         //sound effects
                         music(3);
                         score = first.getScore();
+                        helpPoints += 3;
+                        //connection
+                        sql = "UPDATE Manager " +
+                                "   SET Score = " + score +
+                                ",Help = " + helpPoints +
+                                " WHERE id = 1;";
+                        try {
+                            stmt.executeUpdate(sql);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        //end connection
+
                     } else {
                         music(1);
                         //modifie the word, automaticaly
@@ -264,8 +286,25 @@ public class MainWordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currentLevel = 1;
+        connection = CNX.dbConnection();
         helpPoints = 0;
+        score = 0;
+        //if first time playing hen fill table
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+
+            if (!rs.next()) {
+                sql = "INSERT INTO Manager (Score,Help) " +
+                        "VALUES" + "('" + score + "','" + helpPoints + "');";
+                stmt.executeUpdate(sql);
+                System.out.println("CREATION");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        currentLevel = 1;
         state.setText("");
         Progress.setProgress(0);
         dictionary1.clear();
