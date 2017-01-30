@@ -87,6 +87,7 @@ public class MainWordController implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("ABC");
         stage.setScene(new Scene(root1));
+        MainController.mainScore += score;
         stage.show();
     }
 
@@ -114,7 +115,8 @@ public class MainWordController implements Initializable {
     Word first = new Word(1, score);
     int h = -1;
     Random d = new Random();
-    public Connection connection;
+
+    public static Connection connection;
     Statement stmt;
     String sql;
 
@@ -198,10 +200,10 @@ public class MainWordController implements Initializable {
                         //sound effects
                         music(3);
                         score = first.getScore();
-                        helpPoints += 3;
+                        helpPoints += 5;
                         //connection
                         sql = "UPDATE Manager " +
-                                "   SET Score = " + score +
+                                " SET Score = " + score +
                                 ",Help = " + helpPoints +
                                 " WHERE id = 1;";
                         try {
@@ -286,21 +288,22 @@ public class MainWordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        connection = CNX.dbConnection();
         helpPoints = 0;
         score = 0;
-        //if first time playing hen fill table
+
+        connection = MainController.connection;
         try {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
-
-            if (!rs.next()) {
-                sql = "INSERT INTO Manager (Score,Help) " +
-                        "VALUES" + "('" + score + "','" + helpPoints + "');";
+            sql = "UPDATE Manager " +
+                    "   SET Help = " + helpPoints +
+                    "   ,Score = " +score+
+                    " WHERE id = 1;";
+            try {
                 stmt.executeUpdate(sql);
-                System.out.println("CREATION");
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

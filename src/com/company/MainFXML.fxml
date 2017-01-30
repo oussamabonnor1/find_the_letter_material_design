@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
@@ -10,7 +17,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="614.0" prefWidth="371.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="614.0" prefWidth="371.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainController">
    <children>
       <JFXTabPane layoutY="107.0" prefHeight="507.0" prefWidth="347.0" style="-fx-background-color: #fff;">
          <tabs>
@@ -92,7 +99,19 @@
             </Tab>
             <Tab text="         Score Board         ">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="377.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="377.0">
+                     <children>
+                        <Label layoutX="91.0" layoutY="150.0" prefHeight="46.0" prefWidth="217.0" text="Total Score: ">
+                           <font>
+                              <Font size="31.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainScoreLabel" layoutX="272.0" layoutY="151.0" text="00">
+                           <font>
+                              <Font size="29.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>

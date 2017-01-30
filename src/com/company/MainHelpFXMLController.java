@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +34,7 @@ import javafx.stage.StageStyle;
  *
  * @author DELL
  */
-public class MainHelpFXMLController implements Initializable {
+public class MainHelpFXMLController implements Initializable,EventHandler {
 
     @FXML
     private JFXButton closButton;
@@ -51,7 +53,6 @@ public class MainHelpFXMLController implements Initializable {
 
     public Connection connection;
     Statement stmt;
-    String sql;
 
 
     @FXML
@@ -68,8 +69,8 @@ public class MainHelpFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        connection = CNX.dbConnection();
-        //if first time playing hen fill table
+        connection = MainController.connection;
+
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
@@ -77,12 +78,26 @@ public class MainHelpFXMLController implements Initializable {
             if (!rs.next()) {
                 helpPoints.setText("00");
                 System.out.println("CREATION");
-            }else {
+            } else {
                 helpPoints.setText(String.valueOf(rs.getInt("Help")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        showLetter.setOnAction(this);
+        showWord.setOnAction(this);
     }
 
+
+    @Override
+    public void handle(Event event) {
+        if(event.getSource()== showLetter){
+
+        }
+
+        if(event.getSource()== showWord){
+            System.out.println("show word");
+        }
+    }
 }
