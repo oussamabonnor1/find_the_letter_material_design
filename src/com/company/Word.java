@@ -20,8 +20,7 @@ public class Word {
     String testWord;
     ArrayList<Character> organizedCharacters = new ArrayList<>();
     ArrayList<Character> wordLetters = new ArrayList<>();
-    Scanner r = new Scanner(System.in);
-    String responce;
+
 
     public int getIndex() {
         return index;
@@ -162,7 +161,10 @@ public class Word {
         } else if (c.length() < wordLetters.size() || c.length() > wordLetters.size()) {
             valeur = false;
             if (type == 2 && score > 0) score -= 3;
-            else if (score > 0) score -= 1;
+            if (type == 1 && score > 0) {
+                score -= 1;
+                System.out.println("MINUS SCORE");
+            }
         } else {
             //word entered is same size as word presented
             int delta = 0;
@@ -172,8 +174,11 @@ public class Word {
                     valeur = true;
                     if (!organizedCharacters.get(i).equals(c.charAt(i))) delta++;
                 } else {
-                    if (type == 2 && score > 0) score -= 3;
-                    else if (score > 0) score -= 1;
+                    if (type == 2 && getScore() > 0) score -= 3;
+                    if (type == 1 && getScore() > 0) {
+                        score -= 1;
+                        System.out.println("MINUS SCORE");
+                    }
                     return false;
                 }
             }
@@ -191,42 +196,27 @@ public class Word {
     }
 
     //help method 1:
-   /* public boolean help1() {
-        boolean helpval = true;
-        //each time the user gets 3 errors, this will appear
-        if (help >= 3) {
-            System.out.println("*******seems like you re having some troubles*******");
-            System.out.println("do you need help ? (y/n)");
-            responce = r.next();
+    public String help1(String organised, String word, int choice) {
 
-
-            //if the user wants help:
-            if (responce.equals("y") || responce.equals("yes")) {
-                System.out.println("okay, show the entier word(for 50 points) ? (y/n)");
-                responce = r.next();
-                if (responce.equals("y") || responce.equals("yes")) {
-                    //helping
-                    if (score >= 50) {
-                        System.out.print("that word was: ");
-                        for (int i = 0; i < wordLetters.size(); i++) {
-                            System.out.print(wordLetters.get(i));
-                        }
-                        help = 0;
-                        helpval = false;
-                        score -= 50;
-                        System.out.println(" your new score is " + score);
-                        score -= 100;
-                    } else System.out.println("*******sorry,you don't have enough points*******");
-                }
-                //end of helping...
-            }
-            //if that bitch thinks he s smart enough:
-            else {
-                System.out.println("very well..good luck");
-                help = 0;
-            }
+        if (choice == 1) {
+                organised = word;
         }
-        return helpval;
-    }*/
+        if (choice == 2) {
+            Random r = new Random();
+            int letter;
+            do {
+                letter = r.nextInt(word.length());
+            } while (!(organised.charAt(letter) =='-'));
 
+            System.out.println(organised);
+            char[] test = organised.toCharArray();
+            System.out.println(test[letter]);
+            test[letter] = word.charAt(letter);
+            System.out.println(test[letter]);
+
+            organised = test.toString();
+        }
+
+        return organised;
+    }
 }

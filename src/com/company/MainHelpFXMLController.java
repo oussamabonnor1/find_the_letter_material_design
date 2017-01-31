@@ -8,10 +8,14 @@ package com.company;
 import com.jfoenix.controls.JFXButton;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -34,7 +38,7 @@ import javafx.stage.StageStyle;
  *
  * @author DELL
  */
-public class MainHelpFXMLController implements Initializable,EventHandler {
+public class MainHelpFXMLController implements Initializable, EventHandler {
 
     @FXML
     private JFXButton closButton;
@@ -53,6 +57,7 @@ public class MainHelpFXMLController implements Initializable,EventHandler {
 
     public Connection connection;
     Statement stmt;
+    int help = 0;
 
 
     @FXML
@@ -77,9 +82,9 @@ public class MainHelpFXMLController implements Initializable,EventHandler {
 
             if (!rs.next()) {
                 helpPoints.setText("00");
-                System.out.println("CREATION");
             } else {
                 helpPoints.setText(String.valueOf(rs.getInt("Help")));
+                help = rs.getInt("Help");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,12 +97,62 @@ public class MainHelpFXMLController implements Initializable,EventHandler {
 
     @Override
     public void handle(Event event) {
-        if(event.getSource()== showLetter){
+        ResultSet rs;
+        String word = null;
+        String organised = null;
+        Word manipulation = new Word(0, 0);
+        try {
+            stmt = connection.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM Manager;");
+            help = rs.getInt("Help");
+            word = rs.getString("Word");
+            organised = rs.getString("Organised");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        if (event.getSource() == showLetter) {
+            if (help > 3) {
+                organised = manipulation.help1(organised, word, 2);
+                help -= 3;
+            }
+
 
         }
 
-        if(event.getSource()== showWord){
-            System.out.println("show word");
+        if (event.getSource() == showWord) {
+            if (help > 10) {
+                organised = manipulation.help1(organised, word, 1);
+                help -= 10;
+            }
+
         }
+
+        String sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + organised + "'" +
+                ",Help = " + help +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+       /* try {
+            Method method = MainWordController.class.getMethod("updateWord");
+            try {
+                method.invoke(false);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+*/
+
+
     }
 }

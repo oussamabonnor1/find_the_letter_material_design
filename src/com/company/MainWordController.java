@@ -55,6 +55,7 @@ public class MainWordController implements Initializable {
 
     @FXML
     private JFXTextField answer;
+
     @FXML
     private Label word;
 
@@ -101,6 +102,24 @@ public class MainWordController implements Initializable {
 
     @FXML
     void closewindow(ActionEvent event) throws IOException {
+        score = 0;
+        helpPoints = 0;
+
+        try {
+            stmt = connection.createStatement();
+            sql = "UPDATE Manager " +
+                    "   SET Help = " + helpPoints +
+                    "   ,Score = " + score +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
@@ -160,11 +179,22 @@ public class MainWordController implements Initializable {
         first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(4));
 
-        //make the textfield empty here
         answer.setText("");
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
             word.setText(word.getText() + first.organizedCharacters.get(i));
+        }
+
+        String tranfer = word.getText();
+
+        sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + tranfer + "'" +
+                " ,Word = " + "'" + first.testWord + "'" +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }
@@ -174,6 +204,19 @@ public class MainWordController implements Initializable {
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
             word.setText(word.getText() + first.organizedCharacters.get(i));
+        }
+
+        String tranfer = word.getText();
+
+        sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + tranfer + "'" +
+                ",Score = " + score +
+                ",Help = " + helpPoints +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -195,34 +238,20 @@ public class MainWordController implements Initializable {
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("You finished this word !");
                         answer.setDisable(true);
-                        updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
                         score = first.getScore();
                         helpPoints += 5;
-                        //connection
-                        sql = "UPDATE Manager " +
-                                " SET Score = " + score +
-                                ",Help = " + helpPoints +
-                                " WHERE id = 1;";
-                        try {
-                            stmt.executeUpdate(sql);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                        //end connection
+                        updateWord();
 
                     } else {
                         music(1);
-                        //modifie the word, automaticaly
-                        updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("Good Job");
                         score = first.getScore();
+                        updateWord();
                     }
-                    //state is the label
-
                 } else {
                     score = first.getScore();
                     //state is the label
@@ -296,7 +325,7 @@ public class MainWordController implements Initializable {
             stmt = connection.createStatement();
             sql = "UPDATE Manager " +
                     "   SET Help = " + helpPoints +
-                    "   ,Score = " +score+
+                    "   ,Score = " + score +
                     " WHERE id = 1;";
             try {
                 stmt.executeUpdate(sql);

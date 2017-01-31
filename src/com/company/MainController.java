@@ -42,6 +42,9 @@ public class MainController implements Initializable {
     @FXML
     private JFXButton lvlimages;
 
+    @FXML
+    private Label mainScoreLabel;
+
     public static Connection connection = CNX.dbConnection();
 
     Statement stmt;
@@ -116,16 +119,18 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
 
             if (!rs.next()) {
-                sql = "INSERT INTO Manager (mainScore) " +
-                        "VALUES" + "('" + mainScore + "');";
+                sql = "INSERT INTO Manager (mainScore,Score,Help,Organised,Word) " +
+                        "VALUES" + "('" + mainScore + "','"+0+ "','"+0+ "','"+"','"+"');";
                 stmt.executeUpdate(sql);
                 System.out.println("CREATION");
             } else {
+                mainScore += rs.getInt("Score");
                 sql = "UPDATE Manager " +
                         "   SET mainScore = " + mainScore +
                         " WHERE id = 1;";
@@ -138,6 +143,9 @@ public class MainController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mainScoreLabel.setText(String.valueOf(mainScore));
+
     }
 
 }
