@@ -80,6 +80,22 @@ public class MainWordController implements Initializable {
 
     @FXML
     void OnBack(ActionEvent event) throws IOException {
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -88,7 +104,6 @@ public class MainWordController implements Initializable {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("ABC");
         stage.setScene(new Scene(root1));
-        MainController.mainScore += score;
         stage.show();
     }
 
@@ -102,14 +117,13 @@ public class MainWordController implements Initializable {
 
     @FXML
     void closewindow(ActionEvent event) throws IOException {
-        score = 0;
-        helpPoints = 0;
 
         try {
             stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
             sql = "UPDATE Manager " +
-                    "   SET Help = " + helpPoints +
-                    "   ,Score = " + score +
+                    "   SET mainScore = " + mainScore +
                     " WHERE id = 1;";
             try {
                 stmt.executeUpdate(sql);
@@ -135,7 +149,7 @@ public class MainWordController implements Initializable {
     int h = -1;
     Random d = new Random();
 
-    public static Connection connection;
+    public Connection connection;
     Statement stmt;
     String sql;
 
@@ -224,7 +238,6 @@ public class MainWordController implements Initializable {
 
         if (next == false) {
             if (answer.getText().isEmpty()) {
-                //state is a label
                 state.setStyle("-fx-text-fill: #000000;-fx-alignment: center;");
                 state.setText("Writte at least one letter !");
             } else {
@@ -241,6 +254,15 @@ public class MainWordController implements Initializable {
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
+
+                        try {
+                            stmt = connection.createStatement();
+                            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+                            helpPoints = rs.getInt("Help");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                         score = first.getScore();
                         helpPoints += 5;
                         updateWord();
@@ -250,17 +272,22 @@ public class MainWordController implements Initializable {
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("Good Job");
                         score = first.getScore();
+                        try {
+                            stmt = connection.createStatement();
+                            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+                            helpPoints = rs.getInt("Help");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         updateWord();
                     }
                 } else {
                     score = first.getScore();
-                    //state is the label
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
                     score = first.getScore();
                 }
-                //answer is the textfield
                 answer.setText("");
             }
         } else {
@@ -278,7 +305,6 @@ public class MainWordController implements Initializable {
                 state.setText("You Finished this Level !");
                 currentLevel++;
                 level.setText("level: " + currentLevel + "/" + size);
-                //first.dictionary.remove(0);
                 next = false;
                 creatingWord();
                 Progress.setProgress(0);
@@ -286,7 +312,6 @@ public class MainWordController implements Initializable {
             } else {
                 answer.setDisable(false);
                 creatingWord();
-                //submit is the button / check button gets activated
                 next = false;
                 submit.setText("Check");
                 state.setText("");

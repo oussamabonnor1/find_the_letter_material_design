@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainHelpFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="407.0" prefWidth="379.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainHelpFXMLController">
    <children>
       <Pane prefHeight="127.0" prefWidth="379.0" style="-fx-background-color: #FFC107;">
          <children>
@@ -45,37 +45,46 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="92.0" fitWidth="92.0" layoutX="41.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="92.0" fitWidth="92.0" layoutX="41.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Blue-Star.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="35.0" layoutY="290.0" prefHeight="37.0" prefWidth="104.0" style="-fx-background-color: #46C5D0; -fx-background-radius: 20%;" text="Get Letter" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="35.0" layoutY="310.0" prefHeight="37.0" prefWidth="104.0" style="-fx-background-color: #46C5D0; -fx-background-radius: 20%;" text="Get Letter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="240.0" layoutY="290.0" prefHeight="37.0" prefWidth="104.0" style="-fx-background-color: #F9BD0F; -fx-background-radius: 20%;" text="Get Word" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="240.0" layoutY="309.0" prefHeight="37.0" prefWidth="104.0" style="-fx-background-color: #F9BD0F; -fx-background-radius: 20%;" text="Get Word" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton fx:id="showLetter" layoutX="35.0" layoutY="290.0" prefHeight="37.0" prefWidth="104.0" text=" " textFill="#46c5d0" />
-      <JFXButton fx:id="showWord" layoutX="240.0" layoutY="290.0" prefHeight="37.0" prefWidth="104.0" text=" " textFill="#f9bd0f" />
-      <Label layoutX="65.0" layoutY="248.0" text="x 03" textFill="#46c5d0">
+      <JFXButton fx:id="showLetter" layoutX="35.0" layoutY="310.0" prefHeight="37.0" prefWidth="104.0" text=" " textFill="#46c5d0" />
+      <JFXButton fx:id="showWord" layoutX="240.0" layoutY="309.0" prefHeight="37.0" prefWidth="104.0" text=" " textFill="#f9bd0f" />
+      <Label layoutX="65.0" layoutY="258.0" text="x 03" textFill="#46c5d0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="270.0" layoutY="248.0" text="x 10" textFill="#f9bd0f">
+      <Label layoutX="270.0" layoutY="258.0" text="x 10" textFill="#f9bd0f">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ImageView fitHeight="92.0" fitWidth="92.0" layoutX="246.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="92.0" fitWidth="92.0" layoutX="246.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Gold-Star.png" />
          </image>
       </ImageView>
+      <Pane layoutY="366.0" prefHeight="43.0" prefWidth="379.0" style="-fx-background-color: #FFC107;">
+         <children>
+            <Label fx:id="txtShow" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="5.0" prefHeight="30.0" prefWidth="204.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

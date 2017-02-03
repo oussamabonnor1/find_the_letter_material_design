@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Created by user on 10/03/2016.
@@ -197,10 +196,8 @@ public class Word {
 
     //help method 1:
     public String help1(String organised, String word, int choice) {
+        String found = null;
 
-        if (choice == 1) {
-                organised = word;
-        }
         if (choice == 2) {
             Random r = new Random();
             int letter;
@@ -208,15 +205,21 @@ public class Word {
                 letter = r.nextInt(word.length());
             } while (!(organised.charAt(letter) =='-'));
 
-            System.out.println(organised);
+            /*System.out.println(organised);
             char[] test = organised.toCharArray();
+            for (int i = 0; i < test.length; i++) {
+                System.out.println(test[i]);
+            }
             System.out.println(test[letter]);
             test[letter] = word.charAt(letter);
             System.out.println(test[letter]);
 
-            organised = test.toString();
+            organised.charAt(test[letter]);*/
+
+            found = String.valueOf(word.charAt(letter));
+
         }
 
-        return organised;
+        return found;
     }
 }

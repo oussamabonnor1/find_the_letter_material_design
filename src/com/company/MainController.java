@@ -50,7 +50,7 @@ public class MainController implements Initializable {
     Statement stmt;
     String sql;
 
-    static int mainScore = 0;
+    static int mainScore;
 
     @FXML
     void OnMinimiz(ActionEvent event) {
@@ -126,14 +126,16 @@ public class MainController implements Initializable {
 
             if (!rs.next()) {
                 sql = "INSERT INTO Manager (mainScore,Score,Help,Organised,Word) " +
-                        "VALUES" + "('" + mainScore + "','"+0+ "','"+0+ "','"+"','"+"');";
+                        "VALUES" + "('" + 0 + "','" + 0 + "','" + 0 + "','" + "','" + "');";
                 stmt.executeUpdate(sql);
                 System.out.println("CREATION");
             } else {
-                mainScore += rs.getInt("Score");
+
                 sql = "UPDATE Manager " +
-                        "   SET mainScore = " + mainScore +
+                        "SET Help = " + 0 +
+                        "   ,Score = " + 0 +
                         " WHERE id = 1;";
+                mainScore = rs.getInt("mainScore");
                 try {
                     stmt.executeUpdate(sql);
                 } catch (SQLException e) {

@@ -55,6 +55,10 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
     @FXML
     private JFXButton showWord;
 
+    @FXML
+    private Label txtShow;
+
+
     public Connection connection;
     Statement stmt;
     int help = 0;
@@ -75,7 +79,7 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         connection = MainController.connection;
-
+        txtShow.setText("");
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
@@ -113,18 +117,20 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
 
 
         if (event.getSource() == showLetter) {
-            if (help > 3) {
-                organised = manipulation.help1(organised, word, 2);
+            if (help >= 3) {
+                organised = (manipulation.help1(organised, word, 2));
+                txtShow.setText(organised);
                 help -= 3;
+                helpPoints.setText(String.valueOf(help));
             }
-
 
         }
 
         if (event.getSource() == showWord) {
-            if (help > 10) {
-                organised = manipulation.help1(organised, word, 1);
+            if (help >= 10) {
+                txtShow.setText(word);
                 help -= 10;
+                helpPoints.setText(String.valueOf(help));
             }
 
         }
@@ -138,21 +144,6 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-       /* try {
-            Method method = MainWordController.class.getMethod("updateWord");
-            try {
-                method.invoke(false);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-*/
-
 
     }
 }

@@ -14,6 +14,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -83,13 +87,35 @@ public class MainTextFXMLController implements Initializable {
     ArrayList<String> dictionary = new ArrayList<>();
     ArrayList<Integer> used = new ArrayList<>();
     int score;
+    int helpPoints;
     int currentLevel;
     int size;
     int h;
     Random d = new Random();
 
+    public Connection connection;
+    Statement stmt;
+    String sql;
+
     @FXML
     void OnBack(ActionEvent event) throws IOException {
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -110,6 +136,22 @@ public class MainTextFXMLController implements Initializable {
 
     @FXML
     void closewindow(ActionEvent event) throws IOException {
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
@@ -134,6 +176,21 @@ public class MainTextFXMLController implements Initializable {
                     answer.setDisable(true);
                     Progress.setProgress(Progress.getProgress() + 0.2);
                     score += 15;
+                    helpPoints += 5;
+                    try {
+                        stmt = connection.createStatement();
+                        sql = "UPDATE Manager " +
+                                "   SET Help = " + helpPoints +
+                                "   ,Score = " + score +
+                                " WHERE id = 1;";
+                        try {
+                            stmt.executeUpdate(sql);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     music(1);
                     answer.setText("");
                 } else {
@@ -142,6 +199,19 @@ public class MainTextFXMLController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
+                    try {
+                        stmt = connection.createStatement();
+                        sql = "UPDATE Manager " +
+                                "SET Score = " + score +
+                                " WHERE id = 1;";
+                        try {
+                            stmt.executeUpdate(sql);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                     answer.setText("");
                 }
             }
@@ -196,9 +266,27 @@ public class MainTextFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        word.setFont(Font.font("", 30));
+
+        helpPoints = 0;
         score = 0;
+
+        connection = MainController.connection;
+        try {
+            stmt = connection.createStatement();
+            sql = "UPDATE Manager " +
+                    "   SET Help = " + helpPoints +
+                    "   ,Score = " + score +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        word.setFont(Font.font("", 30));
         h = -1;
         next = false;
         Progress.setProgress(0);
@@ -221,6 +309,17 @@ public class MainTextFXMLController implements Initializable {
         answer.setText("");
         word.setText(hints.get(h));
         System.out.println(hints.get(h) + "\n" + dictionary.get(h));
+
+        String tranfer = dictionary.get(h);
+
+        sql = "UPDATE Manager " +
+                "SET Word = " + "'" + tranfer + "'" +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     void deletingHint() {

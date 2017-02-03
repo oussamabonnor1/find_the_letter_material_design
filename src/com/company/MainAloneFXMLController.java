@@ -13,9 +13,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
@@ -83,6 +83,23 @@ public class MainAloneFXMLController implements Initializable {
 
     @FXML
     void OnBack(ActionEvent event) throws IOException {
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -103,6 +120,22 @@ public class MainAloneFXMLController implements Initializable {
 
     @FXML
     void closewindow(ActionEvent event) throws IOException {
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
@@ -110,7 +143,6 @@ public class MainAloneFXMLController implements Initializable {
     boolean next = false;
     int helpPoints;
 
-    //String[] dictionary1 = {"up", "go", "cry", "detach", "ignore", "save", "transform", "right", "big", "diploma"};
     ArrayList<String> dictionary1 = new ArrayList<>();
     Word first = new Word(2, score);
     int h = -1;
@@ -144,7 +176,6 @@ public class MainAloneFXMLController implements Initializable {
             first.dictionary.remove(h);
         } else {
             for (int i = 0; i < dictionary1.size(); i++) {
-                //first.dictionary.add(dictionary1[i]);
                 first.dictionary.add(dictionary1.get(i));
             }
         }
@@ -160,13 +191,23 @@ public class MainAloneFXMLController implements Initializable {
         first.testWord = first.dictionary.get(h);
         first.generateWord(first.decompose(first.testWord), d.nextInt(4));
 
-        //make the textfield empty here
         answer.setText("");
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
             word.setText(word.getText() + first.organizedCharacters.get(i));
         }
 
+        String tranfer = word.getText();
+
+        sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + tranfer + "'" +
+                " ,Word = " + "'" + first.testWord + "'" +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateWord() {
@@ -174,6 +215,19 @@ public class MainAloneFXMLController implements Initializable {
         word.setText("");
         for (int i = 0; i < first.organizedCharacters.size(); i++) {
             word.setText(word.getText() + first.organizedCharacters.get(i));
+        }
+
+        String tranfer = word.getText();
+
+        sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + tranfer + "'" +
+                ",Score = " + score +
+                ",Help = " + helpPoints +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -186,7 +240,7 @@ public class MainAloneFXMLController implements Initializable {
                 state.setText("Writte at least one letter !");
             } else {
                 //in the guessingCharachter methode, insert the text in the textfield in lowercase
-                if (first.guessingCharachter(answer.getText().toLowerCase(),2)) {
+                if (first.guessingCharachter(answer.getText().toLowerCase(), 2)) {
 
                     if (first.organizedCharacters.equals(first.wordLetters)) {
                         //next button is activated
@@ -195,11 +249,19 @@ public class MainAloneFXMLController implements Initializable {
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("You finished this word !");
                         answer.setDisable(true);
-                        updateWord();
                         Progress.setProgress(Progress.getProgress() + 0.1);
                         //sound effects
                         music(3);
+                        try {
+                            stmt = connection.createStatement();
+                            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+                            helpPoints = rs.getInt("Help");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        helpPoints += 5;
                         score = first.getScore();
+                        updateWord();
 
                     } else {
                         music(1);
@@ -227,7 +289,7 @@ public class MainAloneFXMLController implements Initializable {
                 word.setTextAlignment(TextAlignment.CENTER);
                 word.setFont(Font.font("", FontWeight.BOLD, 25));
                 answer.setDisable(true);
-            } else if (Progress.getProgress() == 0.2) {
+            } else if (Progress.getProgress() == 1) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");
@@ -259,10 +321,9 @@ public class MainAloneFXMLController implements Initializable {
         lblscore.setText(str + " Points");
 
     }
-    
-     @FXML
+
+    @FXML
     void OnHelp(ActionEvent event) throws IOException {
- //((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
@@ -275,22 +336,25 @@ public class MainAloneFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        connection = CNX.dbConnection();
         helpPoints = 0;
         score = 0;
-        //if first time playing hen fill table
+
+        connection = MainController.connection;
         try {
             stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
-
-            if (!rs.next()) {
-                sql = "INSERT INTO Manager (Score,Help) " +
-                        "VALUES" + "('" + score + "','" + helpPoints + "');";
+            sql = "UPDATE Manager " +
+                    "   SET Help = " + helpPoints +
+                    "   ,Score = " + score +
+                    " WHERE id = 1;";
+            try {
                 stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
+
         currentLevel = 1;
         state.setText("");
         word.setFont(Font.font("", 51));
