@@ -345,6 +345,7 @@ public class MainAloneFXMLController implements Initializable {
             sql = "UPDATE Manager " +
                     "   SET Help = " + helpPoints +
                     "   ,Score = " + score +
+                    "   ,Source = " + "'"+ "Alone" +"'"+
                     " WHERE id = 1;";
             try {
                 stmt.executeUpdate(sql);

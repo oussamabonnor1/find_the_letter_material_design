@@ -175,6 +175,15 @@ public class MainTextFXMLController implements Initializable {
                     answer.setDisable(true);
                     answer.setDisable(true);
                     Progress.setProgress(Progress.getProgress() + 0.2);
+
+                    try {
+                        stmt = connection.createStatement();
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+                        helpPoints = rs.getInt("Help");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     score += 15;
                     helpPoints += 5;
                     try {
@@ -276,6 +285,7 @@ public class MainTextFXMLController implements Initializable {
             sql = "UPDATE Manager " +
                     "   SET Help = " + helpPoints +
                     "   ,Score = " + score +
+                    "   ,Source = " + "'" + "Text" + "'" +
                     " WHERE id = 1;";
             try {
                 stmt.executeUpdate(sql);
@@ -314,6 +324,7 @@ public class MainTextFXMLController implements Initializable {
 
         sql = "UPDATE Manager " +
                 "SET Word = " + "'" + tranfer + "'" +
+                ",Organised = " + "'" + tranfer + "'" +
                 " WHERE id = 1;";
         try {
             stmt.executeUpdate(sql);

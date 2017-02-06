@@ -18,6 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -93,9 +97,30 @@ public class MainImagesFXMLController implements Initializable {
     int score;
     int size;
     int currentLevel;
+    int helpPoints;
+
+    Connection connection;
+    Statement stmt;
+    String sql;
 
     @FXML
     void OnBack(ActionEvent event) throws IOException {
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainFXML.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -117,6 +142,23 @@ public class MainImagesFXMLController implements Initializable {
 
     @FXML
     void closewindow(ActionEvent event) throws IOException {
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+            int mainScore = rs.getInt("mainScore") + rs.getInt("Score");
+            sql = "UPDATE Manager " +
+                    "   SET mainScore = " + mainScore +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
@@ -140,8 +182,15 @@ public class MainImagesFXMLController implements Initializable {
                     answer.setDisable(true);
                     answer.setDisable(true);
                     Progress.setProgress(Progress.getProgress() + 0.2);
+                    try {
+                        stmt = connection.createStatement();
+                        ResultSet rs = stmt.executeQuery("SELECT * FROM Manager;");
+                        helpPoints = rs.getInt("Help");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     score += 15;
-                    //sound effects
+                    helpPoints += 5;
                     music(1);
                 } else {
                     //NOT CORRECT
@@ -151,10 +200,21 @@ public class MainImagesFXMLController implements Initializable {
                     music(2);
                     answer.setText("");
                 }
+
+                sql = "UPDATE Manager " +
+                        "SET Score = " + score +
+                        ",Help = " + helpPoints +
+                        " WHERE id = 1;";
+                try {
+                    stmt.executeUpdate(sql);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
             }
         } else {
             //NEXTING AND DICTIONARY IS USED UP
-            if (used.size() == dictionary1.size()-1) {
+            if (used.size() == dictionary1.size() - 1) {
                 submit.setDisable(true);
                 state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                 state.setText("you finished them all !");
@@ -194,6 +254,7 @@ public class MainImagesFXMLController implements Initializable {
         }
         lblscore.setText(score + "Points");
     }
+
     @FXML
     void OnHelp(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainHelpFXML.fxml"));
@@ -213,6 +274,18 @@ public class MainImagesFXMLController implements Initializable {
         image = new Image(new FileInputStream(new File(String.valueOf(Paths.get("src/com/company/images/" + String.valueOf(currentImage) + ".png")))));//, 200, 150, false, false);
         //image= new Image(new FileInputStream(new File("C:\\Users\\Oussama\\IdeaProjects\\find_the_letter_material_design\\src\\com\\company\\images\\1.png")));
         view.setImage(image);
+
+        String tranfer = dictionary1.get(currentImage);
+
+        sql = "UPDATE Manager " +
+                " SET Organised = " + "'" + tranfer + "'" +
+                " ,Word = " + "'" + tranfer + "'" +
+                " WHERE id = 1;";
+        try {
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     void deletingImage() {
@@ -238,6 +311,26 @@ public class MainImagesFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         score = 0;
+        helpPoints = 0;
+
+        connection = MainController.connection;
+        try {
+            stmt = connection.createStatement();
+            sql = "UPDATE Manager " +
+                    "   SET Help = " + helpPoints +
+                    "   ,Score = " + score +
+                    "   ,Source = " + "'" + "Image" + "'" +
+                    " WHERE id = 1;";
+            try {
+                stmt.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         next = false;
         Progress.setProgress(0);
         currentLevel = 1;
@@ -253,6 +346,7 @@ public class MainImagesFXMLController implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
     }
 
     public void music(int i) {

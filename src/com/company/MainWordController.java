@@ -351,6 +351,7 @@ public class MainWordController implements Initializable {
             sql = "UPDATE Manager " +
                     "   SET Help = " + helpPoints +
                     "   ,Score = " + score +
+                    "   ,Source = " + "'"+ "Word" +"'"+
                     " WHERE id = 1;";
             try {
                 stmt.executeUpdate(sql);

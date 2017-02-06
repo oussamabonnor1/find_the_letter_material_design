@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -104,12 +105,15 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
         ResultSet rs;
         String word = null;
         String organised = null;
+        String source = null;
+        String sql;
         Word manipulation = new Word(0, 0);
         try {
             stmt = connection.createStatement();
             rs = stmt.executeQuery("SELECT * FROM Manager;");
             help = rs.getInt("Help");
             word = rs.getString("Word");
+            source = rs.getString("Source");
             organised = rs.getString("Organised");
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,10 +122,30 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
 
         if (event.getSource() == showLetter) {
             if (help >= 3) {
-                organised = (manipulation.help1(organised, word, 2));
-                txtShow.setText(organised);
-                help -= 3;
-                helpPoints.setText(String.valueOf(help));
+                if (source.equals("Image") || source.equals("Text")) {
+                    txtShow.setText(String.valueOf(word.charAt(new Random().nextInt(word.length()))));
+                    help -= 3;
+                    helpPoints.setText(String.valueOf(help));
+                    sql = "UPDATE Manager " +
+                            "SET Help = " + help +
+                            " WHERE id = 1;";
+                } else {
+                    organised = (manipulation.help1(organised, word, 2));
+                    txtShow.setText(organised);
+                    help -= 3;
+                    helpPoints.setText(String.valueOf(help));
+                    sql = "UPDATE Manager " +
+                            " SET Organised = " + "'" + organised + "'" +
+                            ",Help = " + help +
+                            " WHERE id = 1;";
+                }
+
+
+                try {
+                    stmt.executeUpdate(sql);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
@@ -131,19 +155,19 @@ public class MainHelpFXMLController implements Initializable, EventHandler {
                 txtShow.setText(word);
                 help -= 10;
                 helpPoints.setText(String.valueOf(help));
+               sql = "UPDATE Manager " +
+                        " SET Organised = " + "'" + organised + "'" +
+                        ",Help = " + help +
+                        " WHERE id = 1;";
+                try {
+                    stmt.executeUpdate(sql);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
 
-        String sql = "UPDATE Manager " +
-                " SET Organised = " + "'" + organised + "'" +
-                ",Help = " + help +
-                " WHERE id = 1;";
-        try {
-            stmt.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
     }
 }
