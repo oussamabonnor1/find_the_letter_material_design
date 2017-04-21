@@ -250,6 +250,7 @@ public class MainAloneFXMLController implements Initializable {
                         state.setText("You finished this word !");
                         answer.setDisable(true);
                         Progress.setProgress(Progress.getProgress() + 0.1);
+                        System.out.println(Progress.getProgress());
                         //sound effects
                         music(3);
                         try {
@@ -266,10 +267,10 @@ public class MainAloneFXMLController implements Initializable {
                     } else {
                         music(1);
                         //modifie the word, automaticaly
-                        updateWord();
                         state.setStyle("-fx-text-fill: #00C853;-fx-alignment: center;");
                         state.setText("Good Job");
                         score = first.getScore();
+                        updateWord();
                     }
 
                 } else {
@@ -277,7 +278,8 @@ public class MainAloneFXMLController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
-                    score = first.getScore();
+                    score -=1;
+                    updateWord();
                 }
                 answer.setText("");
             }
@@ -289,7 +291,7 @@ public class MainAloneFXMLController implements Initializable {
                 word.setTextAlignment(TextAlignment.CENTER);
                 word.setFont(Font.font("", FontWeight.BOLD, 25));
                 answer.setDisable(true);
-            } else if (Progress.getProgress() == 1) {
+            } else if (Progress.getProgress() > 0.9) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");

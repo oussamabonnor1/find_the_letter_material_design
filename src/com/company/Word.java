@@ -159,11 +159,6 @@ public class Word {
             //not one letter, word smaller or greater then the presented word
         } else if (c.length() < wordLetters.size() || c.length() > wordLetters.size()) {
             valeur = false;
-            if (type == 2 && score > 0) score -= 3;
-            if (type == 1 && score > 0) {
-                score -= 1;
-                System.out.println("MINUS SCORE");
-            }
         } else {
             //word entered is same size as word presented
             int delta = 0;
@@ -173,11 +168,6 @@ public class Word {
                     valeur = true;
                     if (!organizedCharacters.get(i).equals(c.charAt(i))) delta++;
                 } else {
-                    if (type == 2 && getScore() > 0) score -= 3;
-                    if (type == 1 && getScore() > 0) {
-                        score -= 1;
-                        System.out.println("MINUS SCORE");
-                    }
                     return false;
                 }
             }

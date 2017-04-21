@@ -286,7 +286,8 @@ public class MainWordController implements Initializable {
                     state.setStyle("-fx-text-fill: #D50000;-fx-alignment: center;");
                     state.setText("wrong, guess again !");
                     music(2);
-                    score = first.getScore();
+                    score-=1;
+                    updateWord();
                 }
                 answer.setText("");
             }
@@ -298,7 +299,7 @@ public class MainWordController implements Initializable {
                 word.setTextAlignment(TextAlignment.CENTER);
                 word.setFont(Font.font("", FontWeight.BOLD, 25));
                 answer.setDisable(true);
-            } else if (Progress.getProgress() == 1) {
+            } else if (Progress.getProgress() > 0.9) {
                 //state is the label
                 submit.setText("Check");
                 state.setStyle("fx-text-fill:#000000;");

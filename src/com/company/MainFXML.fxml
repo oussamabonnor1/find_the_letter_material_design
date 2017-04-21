@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
@@ -101,16 +103,21 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="377.0">
                      <children>
-                        <Label layoutX="91.0" layoutY="150.0" prefHeight="46.0" prefWidth="217.0" text="Total Score: ">
+                        <Label layoutX="77.0" layoutY="412.0" prefHeight="46.0" prefWidth="217.0" text="Total Score: ">
                            <font>
                               <Font size="31.0" />
                            </font>
                         </Label>
-                        <Label fx:id="mainScoreLabel" layoutX="272.0" layoutY="151.0" text="00">
+                        <Label fx:id="mainScoreLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="235.0" layoutY="414.0" prefHeight="43.0" prefWidth="66.0" text="00" textAlignment="CENTER">
                            <font>
                               <Font size="29.0" />
                            </font>
                         </Label>
+                        <ImageView id="bgImage" fitHeight="388.0" fitWidth="347.0" layoutX="12.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/11.png" />
+                           </image>
+                        </ImageView>
                      </children></AnchorPane>
               </content>
             </Tab>
